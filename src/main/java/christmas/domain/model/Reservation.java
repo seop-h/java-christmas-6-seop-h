@@ -20,6 +20,10 @@ public class Reservation {
         this.orders = orders;
     }
 
+    public Date getDate() {
+        return date;
+    }
+
     private void validate(Map<Menu, Order> orders) {
         checkCondition(orders.keySet().stream()
                         .allMatch(menu -> menu.getType().equals(BEVERAGE)),

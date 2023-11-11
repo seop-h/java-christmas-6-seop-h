@@ -14,6 +14,10 @@ public class Date {
         this.value = value;
     }
 
+    public int getValue() {
+        return value;
+    }
+
     private void validate(int value) {
         checkCondition(value < FIRST_DAY || value > LAST_DAY,
                 NOT_INVALID_DATE);

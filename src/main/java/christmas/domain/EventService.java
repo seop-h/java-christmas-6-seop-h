@@ -1,9 +1,7 @@
 package christmas.domain;
 
-import christmas.domain.constant.EventAmountConst;
 import christmas.domain.model.Event;
 import christmas.domain.model.Reservation;
-import christmas.domain.model.menu.Type;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
@@ -36,12 +34,9 @@ public class EventService {
 
     private void applyChristmasDDay() {
         int date = reservation.getDate().getValue();
-
-        if (date > CHRISTMAS) {
-            return;
+        if (date <= CHRISTMAS) {
+            eventDetails.put(CHRISTMAS_D_DAY, D_DAY_START + date * D_DAY_INCREMENT);
         }
-
-        eventDetails.put(CHRISTMAS_D_DAY, D_DAY_START + date * D_DAY_INCREMENT);
     }
 
     private void applyEitherOne() {

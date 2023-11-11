@@ -1,4 +1,4 @@
-package christmas.domain.constant;
+package christmas.domain.model.order;
 
 public class OrderConst {
 

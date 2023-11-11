@@ -1,4 +1,4 @@
-package christmas.domain.constant;
+package christmas.domain.model.date;
 
 import java.util.List;
 

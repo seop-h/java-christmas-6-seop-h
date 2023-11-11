@@ -1,13 +1,11 @@
-package christmas.domain.model;
-
-import christmas.domain.constant.DateConst;
+package christmas.domain.model.date;
 
 import static christmas.domain.Validator.checkCondition;
-import static christmas.domain.constant.DateConst.FIRST_DAY;
-import static christmas.domain.constant.DateConst.LAST_DAY;
-import static christmas.domain.constant.DateConst.SPECIAL_DAYS;
-import static christmas.domain.constant.DateConst.WEEKENDS;
-import static christmas.domain.constant.ErrorMessage.NOT_INVALID_DATE;
+import static christmas.domain.model.date.DateConst.FIRST_DAY;
+import static christmas.domain.model.date.DateConst.LAST_DAY;
+import static christmas.domain.model.date.DateConst.SPECIAL_DAYS;
+import static christmas.domain.model.date.DateConst.WEEKENDS;
+import static christmas.constant.ErrorMessage.NOT_INVALID_DATE;
 
 public class Date {
 

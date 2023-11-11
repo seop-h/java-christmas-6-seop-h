@@ -1,4 +1,4 @@
-package christmas.domain.model.menu;
+package christmas.domain.model.order.menu;
 
 public enum Type {
 

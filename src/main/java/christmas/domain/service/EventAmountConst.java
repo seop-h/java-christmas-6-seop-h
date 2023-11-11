@@ -1,8 +1,8 @@
-package christmas.domain.constant;
+package christmas.domain.service;
 
-import christmas.domain.model.menu.Menu;
+import christmas.domain.model.order.menu.Menu;
 
-import static christmas.domain.model.menu.Menu.CHAMPAGNE;
+import static christmas.domain.model.order.menu.Menu.CHAMPAGNE;
 
 public class EventAmountConst {
 

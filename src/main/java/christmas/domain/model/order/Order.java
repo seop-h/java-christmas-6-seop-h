@@ -1,10 +1,10 @@
-package christmas.domain.model;
+package christmas.domain.model.order;
 
-import christmas.domain.model.menu.Menu;
-import christmas.domain.model.menu.Serving;
+import christmas.domain.model.order.menu.Menu;
+import christmas.domain.model.order.menu.Serving;
 
 import static christmas.domain.Validator.checkCondition;
-import static christmas.domain.constant.ErrorMessage.NOT_INVALID_ORDER;
+import static christmas.constant.ErrorMessage.NOT_INVALID_ORDER;
 
 public class Order {
 

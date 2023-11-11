@@ -1,4 +1,4 @@
-package christmas.domain.model;
+package christmas.domain.service;
 
 public enum Badge {
 

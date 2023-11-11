@@ -1,9 +1,9 @@
-package christmas.domain.model.menu;
+package christmas.domain.model.order.menu;
 
 import christmas.domain.Validator;
 
-import static christmas.domain.constant.ErrorMessage.NOT_INVALID_ORDER;
-import static christmas.domain.constant.OrderConst.MINIMUM_DISH;
+import static christmas.constant.ErrorMessage.NOT_INVALID_ORDER;
+import static christmas.domain.model.order.OrderConst.MINIMUM_DISH;
 
 public class Serving {
 

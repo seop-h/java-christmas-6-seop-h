@@ -1,14 +1,16 @@
 package christmas.domain.model;
 
-import christmas.domain.model.menu.Menu;
-import christmas.domain.model.menu.Type;
+import christmas.domain.model.date.Date;
+import christmas.domain.model.order.menu.Menu;
+import christmas.domain.model.order.menu.Type;
+import christmas.domain.model.order.Order;
 
 import java.util.Map;
 
 import static christmas.domain.Validator.checkCondition;
-import static christmas.domain.constant.ErrorMessage.NOT_INVALID_ORDER;
-import static christmas.domain.constant.OrderConst.MAXIMUM_TOTAL_DISH;
-import static christmas.domain.model.menu.Type.BEVERAGE;
+import static christmas.constant.ErrorMessage.NOT_INVALID_ORDER;
+import static christmas.domain.model.order.OrderConst.MAXIMUM_TOTAL_DISH;
+import static christmas.domain.model.order.menu.Type.BEVERAGE;
 
 public class Reservation {
 

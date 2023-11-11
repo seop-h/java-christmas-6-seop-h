@@ -1,29 +1,27 @@
-package christmas.domain;
+package christmas.domain.service;
 
-import christmas.domain.model.Badge;
-import christmas.domain.model.Event;
 import christmas.domain.model.Reservation;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
 
-import static christmas.domain.constant.DateConst.CHRISTMAS;
-import static christmas.domain.constant.EventAmountConst.D_DAY_INCREMENT;
-import static christmas.domain.constant.EventAmountConst.D_DAY_START;
-import static christmas.domain.constant.EventAmountConst.GIVEAWAY_PRODUCT;
-import static christmas.domain.constant.EventAmountConst.MENU_DISCOUNT;
-import static christmas.domain.constant.EventAmountConst.MINIMUM_POSSIBLE_GIVEAWAY;
-import static christmas.domain.constant.EventAmountConst.SPECIAL_DISCOUNT;
-import static christmas.domain.model.Badge.SANTA;
-import static christmas.domain.model.Badge.STAR;
-import static christmas.domain.model.Badge.TREE;
-import static christmas.domain.model.Event.CHRISTMAS_D_DAY;
-import static christmas.domain.model.Event.GIVEAWAY;
-import static christmas.domain.model.Event.SPECIAL;
-import static christmas.domain.model.Event.WEEKDAY;
-import static christmas.domain.model.Event.WEEKEND;
-import static christmas.domain.model.menu.Type.DESSERT;
-import static christmas.domain.model.menu.Type.MAIN;
+import static christmas.domain.model.date.DateConst.CHRISTMAS;
+import static christmas.domain.service.EventAmountConst.D_DAY_INCREMENT;
+import static christmas.domain.service.EventAmountConst.D_DAY_START;
+import static christmas.domain.service.EventAmountConst.GIVEAWAY_PRODUCT;
+import static christmas.domain.service.EventAmountConst.MENU_DISCOUNT;
+import static christmas.domain.service.EventAmountConst.MINIMUM_POSSIBLE_GIVEAWAY;
+import static christmas.domain.service.EventAmountConst.SPECIAL_DISCOUNT;
+import static christmas.domain.service.Badge.SANTA;
+import static christmas.domain.service.Badge.STAR;
+import static christmas.domain.service.Badge.TREE;
+import static christmas.domain.service.Event.CHRISTMAS_D_DAY;
+import static christmas.domain.service.Event.GIVEAWAY;
+import static christmas.domain.service.Event.SPECIAL;
+import static christmas.domain.service.Event.WEEKDAY;
+import static christmas.domain.service.Event.WEEKEND;
+import static christmas.domain.model.order.menu.Type.DESSERT;
+import static christmas.domain.model.order.menu.Type.MAIN;
 
 
 public class EventService {

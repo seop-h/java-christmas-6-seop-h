@@ -4,7 +4,7 @@ import christmas.domain.model.order.menu.Menu;
 
 import static christmas.domain.model.order.menu.Menu.CHAMPAGNE;
 
-public class EventAmountConst {
+public abstract class EventAmountConst {
 
     public static final int D_DAY_START = 900;
     public static final int D_DAY_INCREMENT = 100;

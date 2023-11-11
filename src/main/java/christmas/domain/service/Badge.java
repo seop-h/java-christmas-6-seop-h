@@ -14,7 +14,8 @@ public enum Badge {
         this.minimumAmount = minimumAmount;
     }
 
-    public int getMinimumAmount() {
-        return minimumAmount;
+    public boolean isAmountSatisfied(int amount) {
+        return (amount >= this.minimumAmount);
     }
+
 }

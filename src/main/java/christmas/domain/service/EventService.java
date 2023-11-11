@@ -43,13 +43,13 @@ public class EventService {
     public Badge giveBadge() {
         int amount = calculateTotalBenefitAmount();
 
-        if (amount > SANTA.getMinimumAmount()) {
+        if (SANTA.isAmountSatisfied(amount)) {
             return SANTA;
         }
-        if (amount > TREE.getMinimumAmount()) {
+        if (TREE.isAmountSatisfied(amount)) {
             return TREE;
         }
-        if (amount > STAR.getMinimumAmount()) {
+        if (STAR.isAmountSatisfied(amount)) {
             return STAR;
         }
         return null;

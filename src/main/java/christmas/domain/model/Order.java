@@ -13,6 +13,10 @@ public class Order {
         this.dish = dish;
     }
 
+    public int getOrderAmount() {
+        return menu.getPrice() * getDish();
+    }
+
     public Menu getMenu() {
         return menu;
     }

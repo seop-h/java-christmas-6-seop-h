@@ -32,6 +32,12 @@ public class Reservation {
                 .sum();
     }
 
+    public int getTotalOrderAmount() {
+        return orders.values().stream()
+                .mapToInt(Order::getOrderAmount)
+                .sum();
+    }
+
     private void validate(Map<Menu, Order> orders) {
         checkCondition(orders.keySet().stream()
                         .allMatch(menu -> menu.getType().equals(BEVERAGE)),

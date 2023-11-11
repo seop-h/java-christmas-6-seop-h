@@ -61,7 +61,7 @@
   - [x] 주말 할인(금~일)을 적용한다.`applyEitherOne()` &rarr; `applyWeekend()`
   - [x] 평일 할인(일~목)을 적용한다. `applyEitherOne()` &rarr; `applyWeekday()`
   - [x] 특별 할인을 적용한다. `applySpecial()`
-  - [ ] 증정 이벤트를 적용한다.
+  - [x] 증정 이벤트를 적용한다. `applyGiveaway()`
 - [ ] 총혜택 금액에 따라 다른 이벤트 배지를 부여한다.
 
 ### 2) UI 로직

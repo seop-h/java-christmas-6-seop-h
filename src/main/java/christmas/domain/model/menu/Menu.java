@@ -36,4 +36,8 @@ public enum Menu {
     public Type getType() {
         return type;
     }
+
+    public int getPrice() {
+        return price;
+    }
 }

@@ -22,7 +22,7 @@ public class Order {
         this.serving = serving;
     }
 
-    public int getOrderAmount() {
+    public int calculateOrderAmount() {
         return menu.getPrice() * getServing();
     }
 

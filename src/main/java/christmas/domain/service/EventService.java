@@ -23,7 +23,6 @@ import static christmas.domain.service.Event.WEEKEND;
 import static christmas.domain.model.order.menu.Type.DESSERT;
 import static christmas.domain.model.order.menu.Type.MAIN;
 
-
 public class EventService {
 
     private final Reservation reservation;
@@ -41,7 +40,7 @@ public class EventService {
         applyGiveaway();
     }
 
-    private Badge giveBadge() {
+    public Badge giveBadge() {
         int amount = calculateTotalBenefitAmount();
 
         if (amount > SANTA.getMinimumAmount()) {
@@ -84,7 +83,7 @@ public class EventService {
     }
 
     private void applyGiveaway() {
-        if (reservation.getTotalOrderAmount() > MINIMUM_POSSIBLE_GIVEAWAY) {
+        if (reservation.calculateTotalOrderAmount() > MINIMUM_POSSIBLE_GIVEAWAY) {
             eventDetails.put(GIVEAWAY, GIVEAWAY_PRODUCT.getPrice());
         }
     }

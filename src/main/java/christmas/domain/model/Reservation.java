@@ -34,9 +34,9 @@ public class Reservation {
                 .sum();
     }
 
-    public int getTotalOrderAmount() {
+    public int calculateTotalOrderAmount() {
         return orders.values().stream()
-                .mapToInt(Order::getOrderAmount)
+                .mapToInt(Order::calculateOrderAmount)
                 .sum();
     }
 

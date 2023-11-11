@@ -14,12 +14,12 @@ public class Serving {
         this.value = value;
     }
 
+    public int getValue() {
+        return value;
+    }
+
     private void validate(int value) {
         Validator.checkCondition(value < MINIMUM_DISH,
                 NOT_INVALID_ORDER);
-    }
-
-    public int getValue() {
-        return value;
     }
 }

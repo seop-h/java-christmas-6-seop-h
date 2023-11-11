@@ -12,4 +12,8 @@ public class Order {
         this.menu = menu;
         this.dish = dish;
     }
+
+    public int getDish() {
+        return dish.getValue();
+    }
 }

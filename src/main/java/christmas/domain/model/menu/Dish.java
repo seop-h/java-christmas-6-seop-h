@@ -19,4 +19,7 @@ public class Dish {
                 NOT_INVALID_ORDER);
     }
 
+    public int getValue() {
+        return value;
+    }
 }

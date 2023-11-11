@@ -33,4 +33,7 @@ public enum Menu {
         this.price = price;
     }
 
+    public Type getType() {
+        return type;
+    }
 }

@@ -1,5 +1,6 @@
 package christmas.domain;
 
+import christmas.domain.model.Badge;
 import christmas.domain.model.Event;
 import christmas.domain.model.Reservation;
 
@@ -13,6 +14,9 @@ import static christmas.domain.constant.EventAmountConst.GIVEAWAY_PRODUCT;
 import static christmas.domain.constant.EventAmountConst.MENU_DISCOUNT;
 import static christmas.domain.constant.EventAmountConst.MINIMUM_POSSIBLE_GIVEAWAY;
 import static christmas.domain.constant.EventAmountConst.SPECIAL_DISCOUNT;
+import static christmas.domain.model.Badge.SANTA;
+import static christmas.domain.model.Badge.STAR;
+import static christmas.domain.model.Badge.TREE;
 import static christmas.domain.model.Event.CHRISTMAS_D_DAY;
 import static christmas.domain.model.Event.GIVEAWAY;
 import static christmas.domain.model.Event.SPECIAL;
@@ -37,6 +41,27 @@ public class EventService {
         applyEitherOne();
         applySpecial();
         applyGiveaway();
+    }
+
+    private Badge giveBadge() {
+        int amount = calculateTotalBenefitAmount();
+
+        if (amount > SANTA.getMinimumAmount()) {
+            return SANTA;
+        }
+        if (amount > TREE.getMinimumAmount()) {
+            return TREE;
+        }
+        if (amount > STAR.getMinimumAmount()) {
+            return STAR;
+        }
+        return null;
+    }
+
+    private int calculateTotalBenefitAmount() {
+        return eventDetails.values().stream()
+                .mapToInt(Integer::intValue)
+                .sum();
     }
 
     private void applyChristmasDDay() {

@@ -32,6 +32,13 @@ public class EventService {
         this.eventDetails = new LinkedHashMap<>();
     }
 
+    public void applyEvent() {
+        applyChristmasDDay();
+        applyEitherOne();
+        applySpecial();
+        applyGiveaway();
+    }
+
     private void applyChristmasDDay() {
         int date = reservation.getDate().getValue();
         if (date <= CHRISTMAS) {

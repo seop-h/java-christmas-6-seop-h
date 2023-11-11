@@ -1,5 +1,7 @@
 package christmas.domain.model.menu;
 
+import java.util.Arrays;
+
 import static christmas.domain.model.menu.Type.APPETIZER;
 import static christmas.domain.model.menu.Type.BEVERAGE;
 import static christmas.domain.model.menu.Type.DESSERT;
@@ -33,8 +35,19 @@ public enum Menu {
         this.price = price;
     }
 
+    public static Menu findMatch(String menuName) {
+        return Arrays.stream(Menu.values())
+                .filter(menu -> menu.getName().equals(menuName))
+                .findFirst()
+                .orElse(null);
+    }
+
     public Type getType() {
         return type;
+    }
+
+    public String getName() {
+        return name;
     }
 
     public int getPrice() {

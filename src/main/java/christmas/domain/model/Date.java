@@ -1,8 +1,11 @@
 package christmas.domain.model;
 
+import christmas.domain.constant.DateConst;
+
 import static christmas.domain.Validator.checkCondition;
 import static christmas.domain.constant.DateConst.FIRST_DAY;
 import static christmas.domain.constant.DateConst.LAST_DAY;
+import static christmas.domain.constant.DateConst.WEEKENDS;
 import static christmas.domain.constant.ErrorMessage.NOT_INVALID_DATE;
 
 public class Date {
@@ -16,6 +19,10 @@ public class Date {
 
     public int getValue() {
         return value;
+    }
+
+    public boolean isWeekend() {
+        return (WEEKENDS.contains(value));
     }
 
     private void validate(int value) {

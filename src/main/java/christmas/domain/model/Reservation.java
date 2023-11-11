@@ -1,6 +1,7 @@
 package christmas.domain.model;
 
 import christmas.domain.model.menu.Menu;
+import christmas.domain.model.menu.Type;
 
 import java.util.Map;
 
@@ -22,6 +23,13 @@ public class Reservation {
 
     public Date getDate() {
         return date;
+    }
+
+    public int calculateDishesOf(Type type) {
+        return orders.values().stream()
+                .filter(order -> order.getMenu().getType().equals(type))
+                .mapToInt(Order::getDish)
+                .sum();
     }
 
     private void validate(Map<Menu, Order> orders) {

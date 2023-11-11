@@ -23,14 +23,22 @@ public class Reservation {
         this.orders = orders;
     }
 
-    public Date getDate() {
-        return date;
+    public boolean isDateWeekend() {
+        return date.isWeekend();
+    }
+
+    public boolean isDateSpecialDay() {
+        return date.isSpecialDay();
+    }
+
+    public int getDateValue() {
+        return date.getValue();
     }
 
     public int calculateDishesOf(Type type) {
         return orders.values().stream()
-                .filter(order -> order.getMenu().getType().equals(type))
-                .mapToInt(Order::getServing)
+                .filter(order -> order.isMenuKindOf(type))
+                .mapToInt(Order::getServingValue)
                 .sum();
     }
 
@@ -42,10 +50,10 @@ public class Reservation {
 
     private void validate(Map<Menu, Order> orders) {
         checkCondition(orders.keySet().stream()
-                        .allMatch(menu -> menu.getType().equals(BEVERAGE)),
+                        .allMatch(menu -> menu.isKindOf(BEVERAGE)),
                 NOT_INVALID_ORDER);
         checkCondition(orders.values().stream()
-                        .mapToInt(Order::getServing)
+                        .mapToInt(Order::getServingValue)
                         .sum() > MAXIMUM_TOTAL_DISH,
                 NOT_INVALID_ORDER);
     }

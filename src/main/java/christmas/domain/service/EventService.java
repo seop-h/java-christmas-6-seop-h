@@ -62,14 +62,14 @@ public class EventService {
     }
 
     private void applyChristmasDDay() {
-        int date = reservation.getDate().getValue();
+        int date = reservation.getDateValue();
         if (date <= CHRISTMAS) {
             eventDetails.put(CHRISTMAS_D_DAY, D_DAY_START + date * D_DAY_INCREMENT);
         }
     }
 
     private void applyEitherOne() {
-        if (reservation.getDate().isWeekend()){
+        if (reservation.isDateWeekend()){
             applyWeekend();
             return;
         }
@@ -77,7 +77,7 @@ public class EventService {
     }
 
     private void applySpecial() {
-        if (reservation.getDate().isSpecialDay()) {
+        if (reservation.isDateSpecialDay()) {
             eventDetails.put(SPECIAL, SPECIAL_DISCOUNT);
         }
     }

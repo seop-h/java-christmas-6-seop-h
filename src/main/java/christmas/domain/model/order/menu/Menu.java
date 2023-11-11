@@ -32,17 +32,13 @@ public enum Menu {
 
     public static Menu findMatch(String menuName) {
         return Arrays.stream(Menu.values())
-                .filter(menu -> menu.getName().equals(menuName))
+                .filter(menu -> menu.name.equals(menuName))
                 .findFirst()
                 .orElse(null);
     }
 
-    public Type getType() {
-        return type;
-    }
-
-    public String getName() {
-        return name;
+    public boolean isKindOf(Type expected) {
+        return this.type.equals(expected);
     }
 
     public int getPrice() {

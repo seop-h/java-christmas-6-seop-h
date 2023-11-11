@@ -2,6 +2,7 @@ package christmas.domain.model.order;
 
 import christmas.domain.model.order.menu.Menu;
 import christmas.domain.model.order.menu.Serving;
+import christmas.domain.model.order.menu.Type;
 
 import static christmas.domain.Validator.checkCondition;
 import static christmas.constant.ErrorMessage.NOT_INVALID_ORDER;
@@ -22,15 +23,15 @@ public class Order {
         this.serving = serving;
     }
 
+    public boolean isMenuKindOf(Type type) {
+        return menu.isKindOf(type);
+    }
+
     public int calculateOrderAmount() {
-        return menu.getPrice() * getServing();
+        return menu.getPrice() * getServingValue();
     }
 
-    public Menu getMenu() {
-        return menu;
-    }
-
-    public int getServing() {
+    public int getServingValue() {
         return serving.getValue();
     }
 

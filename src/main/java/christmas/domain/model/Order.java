@@ -1,27 +1,27 @@
 package christmas.domain.model;
 
-import christmas.domain.model.menu.Dish;
+import christmas.domain.model.menu.Serving;
 import christmas.domain.model.menu.Menu;
 
 public class Order {
 
     private final Menu menu;
-    private final Dish dish;
+    private final Serving serving;
 
-    public Order(Menu menu, Dish dish) {
+    public Order(Menu menu, Serving serving) {
         this.menu = menu;
-        this.dish = dish;
+        this.serving = serving;
     }
 
     public int getOrderAmount() {
-        return menu.getPrice() * getDish();
+        return menu.getPrice() * getServing();
     }
 
     public Menu getMenu() {
         return menu;
     }
 
-    public int getDish() {
-        return dish.getValue();
+    public int getServing() {
+        return serving.getValue();
     }
 }

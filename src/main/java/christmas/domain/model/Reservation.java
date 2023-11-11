@@ -28,7 +28,7 @@ public class Reservation {
     public int calculateDishesOf(Type type) {
         return orders.values().stream()
                 .filter(order -> order.getMenu().getType().equals(type))
-                .mapToInt(Order::getDish)
+                .mapToInt(Order::getServing)
                 .sum();
     }
 
@@ -43,7 +43,7 @@ public class Reservation {
                         .allMatch(menu -> menu.getType().equals(BEVERAGE)),
                 NOT_INVALID_ORDER);
         checkCondition(orders.values().stream()
-                        .mapToInt(Order::getDish)
+                        .mapToInt(Order::getServing)
                         .sum() > MAXIMUM_TOTAL_DISH,
                 NOT_INVALID_ORDER);
     }

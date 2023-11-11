@@ -5,11 +5,11 @@ import christmas.domain.Validator;
 import static christmas.domain.constant.ErrorMessage.NOT_INVALID_ORDER;
 import static christmas.domain.constant.OrderConst.MINIMUM_DISH;
 
-public class Dish {
+public class Serving {
 
     private final int value;
 
-    public Dish(int value) {
+    public Serving(int value) {
         validate(value);
         this.value = value;
     }

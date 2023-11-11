@@ -12,7 +12,9 @@ import static christmas.domain.constant.DateConst.CHRISTMAS;
 import static christmas.domain.constant.EventAmountConst.D_DAY_INCREMENT;
 import static christmas.domain.constant.EventAmountConst.D_DAY_START;
 import static christmas.domain.constant.EventAmountConst.MENU_DISCOUNT;
+import static christmas.domain.constant.EventAmountConst.SPECIAL_DISCOUNT;
 import static christmas.domain.model.Event.CHRISTMAS_D_DAY;
+import static christmas.domain.model.Event.SPECIAL;
 import static christmas.domain.model.Event.WEEKDAY;
 import static christmas.domain.model.Event.WEEKEND;
 import static christmas.domain.model.menu.Type.DESSERT;
@@ -45,6 +47,12 @@ public class EventService {
             return;
         }
         applyWeekday();
+    }
+
+    private void applySpecial() {
+        if (reservation.getDate().isSpecialDay()) {
+            eventDetails.put(SPECIAL, SPECIAL_DISCOUNT);
+        }
     }
 
     private void applyWeekend() {

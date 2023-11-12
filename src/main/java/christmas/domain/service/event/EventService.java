@@ -89,12 +89,12 @@ public class EventService {
     }
 
     private void applyWeekend() {
-        int dish = reservation.calculateDishesOf(MAIN);
+        int dish = reservation.countServingsOf(MAIN);
         eventDetails.put(WEEKEND, dish * MENU_DISCOUNT);
     }
 
     private void applyWeekday() {
-        int dish = reservation.calculateDishesOf(DESSERT);
+        int dish = reservation.countServingsOf(DESSERT);
         eventDetails.put(WEEKDAY, dish * MENU_DISCOUNT);
     }
 

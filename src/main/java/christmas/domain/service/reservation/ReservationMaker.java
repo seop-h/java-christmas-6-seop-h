@@ -9,7 +9,7 @@ import christmas.domain.model.order.menu.Serving;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
-public class ReservationService {
+public class ReservationMaker {
 
     public Reservation makeReservation(int dateInput, Map<String, Integer> orderInput) {
         Date date = new Date(dateInput);

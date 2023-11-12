@@ -35,7 +35,7 @@ public class Reservation {
         return date.getValue();
     }
 
-    public int calculateDishesOf(Type type) {
+    public int countServingsOf(Type type) {
         return orders.values().stream()
                 .filter(order -> order.isMenuKindOf(type))
                 .mapToInt(Order::getServingValue)

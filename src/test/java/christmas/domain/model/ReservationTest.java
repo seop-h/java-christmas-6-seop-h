@@ -2,7 +2,7 @@ package christmas.domain.model;
 
 import christmas.constant.ErrorMessage;
 import christmas.domain.model.order.menu.Type;
-import christmas.domain.service.reservation.ReservationService;
+import christmas.domain.service.reservation.ReservationMaker;
 import christmas.message.StackTrace;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -18,14 +18,14 @@ import static org.assertj.core.api.Assertions.assertThatIllegalArgumentException
 
 class ReservationTest {
 
-    private final ReservationService service = new ReservationService();
+    private final ReservationMaker maker = new ReservationMaker();
 
     @ParameterizedTest
     @MethodSource("makeReservationIncorrectly")
     @DisplayName("주문 메뉴의 총 개수가 20개를 넘거나 음료밖에 없으면 예외가 발생한다.")
     void createReservationMoreThan20(Map<String, Integer> orderInput) {
         assertThatIllegalArgumentException().isThrownBy(() ->
-                        service.makeReservation(1, orderInput)
+                        maker.makeReservation(1, orderInput)
                 ).withMessage(ErrorMessage.NOT_INVALID_ORDER)
                 .withStackTraceContaining(StackTrace.RESERVATION_VALIDATE);
     }
@@ -34,19 +34,19 @@ class ReservationTest {
     @MethodSource("ordersAndEachServingCount")
     @DisplayName("특정 타입의 메뉴 개수가 기대하는 값과 일치하는지 검사한다.")
     void checkCountOfSpecificType(Map<String, Integer> orderInput, int appetizerCount, int mainCount, int dessertCount, int beverageCount) {
-        Reservation reservation = service.makeReservation(5, orderInput);
+        Reservation reservation = maker.makeReservation(5, orderInput);
 
-        assertThat(reservation.calculateDishesOf(Type.APPETIZER)).isEqualTo(appetizerCount);
-        assertThat(reservation.calculateDishesOf(Type.MAIN)).isEqualTo(mainCount);
-        assertThat(reservation.calculateDishesOf(Type.DESSERT)).isEqualTo(dessertCount);
-        assertThat(reservation.calculateDishesOf(Type.BEVERAGE)).isEqualTo(beverageCount);
+        assertThat(reservation.countServingsOf(Type.APPETIZER)).isEqualTo(appetizerCount);
+        assertThat(reservation.countServingsOf(Type.MAIN)).isEqualTo(mainCount);
+        assertThat(reservation.countServingsOf(Type.DESSERT)).isEqualTo(dessertCount);
+        assertThat(reservation.countServingsOf(Type.BEVERAGE)).isEqualTo(beverageCount);
     }
 
     @ParameterizedTest
     @MethodSource("ordersAndTotalOrderAmount")
     @DisplayName("총 주문 금액이 기대하는 값과 일치하는지 검사한다.")
     void checkTotalOrderAmount(Map<String, Integer> orderInput, int expected) {
-        Reservation reservation = service.makeReservation(5, orderInput);
+        Reservation reservation = maker.makeReservation(5, orderInput);
 
         assertThat(reservation.calculateTotalOrderAmount()).isEqualTo(expected);
 

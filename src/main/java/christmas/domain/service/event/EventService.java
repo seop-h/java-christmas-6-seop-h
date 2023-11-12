@@ -6,6 +6,7 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 
 import static christmas.domain.model.date.DateConst.CHRISTMAS;
+import static christmas.domain.service.event.EventLimitConst.MINIMUM_POSSIBLE_EVENT;
 import static christmas.domain.service.event.EventLimitConst.MINIMUM_POSSIBLE_GIVEAWAY;
 import static christmas.domain.service.event.Badge.SANTA;
 import static christmas.domain.service.event.Badge.STAR;
@@ -29,6 +30,10 @@ public class EventService {
     }
 
     public void applyEvent() {
+        if (reservation.calculateTotalOrderAmount() < MINIMUM_POSSIBLE_EVENT) {
+            return;
+        }
+
         applyChristmasDDay();
         applyEitherOne();
         applySpecial();

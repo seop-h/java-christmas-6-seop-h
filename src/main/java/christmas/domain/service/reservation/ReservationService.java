@@ -13,8 +13,14 @@ public class ReservationService {
 
     public Reservation makeReservation(int dateInput, Map<String, Integer> orderInput) {
         Date date = new Date(dateInput);
+        Map<Menu, Order> orders = makeOrders(orderInput);
 
+        return new Reservation(date, orders);
+    }
+
+    private Map<Menu, Order> makeOrders(Map<String, Integer> orderInput) {
         Map<Menu, Order> orders = new LinkedHashMap<>();
+
         for (Map.Entry<String, Integer> entry : orderInput.entrySet()) {
             Menu matchMenu = Menu.findMatch(entry.getKey());
             Serving serving = new Serving(entry.getValue());
@@ -23,7 +29,7 @@ public class ReservationService {
             orders.put(matchMenu, order);
         }
 
-        return new Reservation(date, orders);
+        return orders;
     }
 
 }

@@ -6,12 +6,7 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 
 import static christmas.domain.model.date.DateConst.CHRISTMAS;
-import static christmas.domain.service.event.EventAmountConst.D_DAY_INCREMENT;
-import static christmas.domain.service.event.EventAmountConst.D_DAY_START;
-import static christmas.domain.service.event.EventAmountConst.GIVEAWAY_PRODUCT;
-import static christmas.domain.service.event.EventAmountConst.MENU_DISCOUNT;
-import static christmas.domain.service.event.EventAmountConst.MINIMUM_POSSIBLE_GIVEAWAY;
-import static christmas.domain.service.event.EventAmountConst.SPECIAL_DISCOUNT;
+import static christmas.domain.service.event.EventLimitConst.MINIMUM_POSSIBLE_GIVEAWAY;
 import static christmas.domain.service.event.Badge.SANTA;
 import static christmas.domain.service.event.Badge.STAR;
 import static christmas.domain.service.event.Badge.TREE;
@@ -64,7 +59,7 @@ public class EventService {
     private void applyChristmasDDay() {
         int date = reservation.getDateValue();
         if (date <= CHRISTMAS) {
-            eventDetails.put(CHRISTMAS_D_DAY, D_DAY_START + date * D_DAY_INCREMENT);
+            eventDetails.put(CHRISTMAS_D_DAY, CHRISTMAS_D_DAY.calculateBenefitAmount(date));
         }
     }
 
@@ -78,24 +73,24 @@ public class EventService {
 
     private void applySpecial() {
         if (reservation.isDateSpecialDay()) {
-            eventDetails.put(SPECIAL, SPECIAL_DISCOUNT);
+            eventDetails.put(SPECIAL, SPECIAL.calculateBenefitAmount(null));
         }
     }
 
     private void applyGiveaway() {
         if (reservation.calculateTotalOrderAmount() > MINIMUM_POSSIBLE_GIVEAWAY) {
-            eventDetails.put(GIVEAWAY, GIVEAWAY_PRODUCT.getPrice());
+            eventDetails.put(GIVEAWAY, GIVEAWAY.calculateBenefitAmount(null));
         }
     }
 
     private void applyWeekend() {
         int dish = reservation.countServingsOf(MAIN);
-        eventDetails.put(WEEKEND, dish * MENU_DISCOUNT);
+        eventDetails.put(WEEKEND, WEEKEND.calculateBenefitAmount(dish));
     }
 
     private void applyWeekday() {
         int dish = reservation.countServingsOf(DESSERT);
-        eventDetails.put(WEEKDAY, dish * MENU_DISCOUNT);
+        eventDetails.put(WEEKDAY, WEEKDAY.calculateBenefitAmount(dish));
     }
 
 }

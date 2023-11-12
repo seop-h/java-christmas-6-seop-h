@@ -1,8 +1,8 @@
 package christmas.domain.model.order.menu;
 
-import christmas.domain.Validator;
-
 import static christmas.constant.ErrorMessage.NOT_INVALID_ORDER;
+import static christmas.domain.Validator.checkCondition;
+import static christmas.domain.model.order.OrderConst.MAXIMUM_TOTAL_DISH;
 import static christmas.domain.model.order.OrderConst.MINIMUM_DISH;
 
 public class Serving {
@@ -19,7 +19,7 @@ public class Serving {
     }
 
     private void validate(int value) {
-        Validator.checkCondition(value < MINIMUM_DISH,
+        checkCondition(value < MINIMUM_DISH || value > MAXIMUM_TOTAL_DISH,
                 NOT_INVALID_ORDER);
     }
 }

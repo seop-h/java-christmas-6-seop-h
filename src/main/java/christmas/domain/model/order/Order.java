@@ -12,13 +12,7 @@ public class Order {
     private final Menu menu;
     private final Serving serving;
 
-    public static Order create(String menuName, int serving) {
-        Menu matchMenu = Menu.findMatch(menuName);
-        validate(matchMenu);
-        return new Order(matchMenu, new Serving(serving));
-    }
-
-    private Order(Menu menu, Serving serving) {
+    public Order(Menu menu, Serving serving) {
         this.menu = menu;
         this.serving = serving;
     }

@@ -10,7 +10,9 @@ import org.junit.jupiter.params.provider.ValueSource;
 import java.util.List;
 import java.util.stream.Stream;
 
+import static christmas.constant.ErrorMessage.NOT_INVALID_ORDER;
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatIllegalArgumentException;
 
 class MenuTest {
 
@@ -25,10 +27,11 @@ class MenuTest {
     @ParameterizedTest
     @ValueSource(strings = {"asdf", "", "양송이 수프", " 타파스", "시저샐러드 "})
     @NullSource
-    @DisplayName("메뉴판에 없는 메뉴 이름을 받으면 null을 반환한다")
+    @DisplayName("메뉴판에 없는 메뉴 이름을 받으면 예외가 발생한다.")
     void findNoMatchMenu(String menuName) {
-        Menu matchMenu = Menu.findMatch(menuName);
-        assertThat(matchMenu).isNull();
+        assertThatIllegalArgumentException().isThrownBy(() ->
+                Menu.findMatch(menuName)
+        ).withMessage(NOT_INVALID_ORDER);
     }
 
     @ParameterizedTest

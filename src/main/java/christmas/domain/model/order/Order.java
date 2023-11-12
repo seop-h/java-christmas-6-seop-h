@@ -29,8 +29,4 @@ public class Order {
         return serving.getValue();
     }
 
-    private static void validate(Menu matchMenu) {
-        checkCondition(matchMenu == null,
-                NOT_INVALID_ORDER);
-    }
 }

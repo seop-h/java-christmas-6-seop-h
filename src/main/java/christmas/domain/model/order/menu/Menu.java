@@ -1,6 +1,10 @@
 package christmas.domain.model.order.menu;
 
+import christmas.constant.ErrorMessage;
+
 import java.util.Arrays;
+
+import static christmas.constant.ErrorMessage.NOT_INVALID_ORDER;
 
 public enum Menu {
 
@@ -34,7 +38,7 @@ public enum Menu {
         return Arrays.stream(Menu.values())
                 .filter(menu -> menu.name.equals(menuName))
                 .findFirst()
-                .orElse(null);
+                .orElseThrow(()->new IllegalArgumentException(NOT_INVALID_ORDER));
     }
 
     public boolean isKindOf(Type expected) {

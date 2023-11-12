@@ -12,17 +12,17 @@ import static org.assertj.core.api.Assertions.assertThatIllegalArgumentException
 class ServingTest {
 
     @ParameterizedTest
-    @ValueSource(ints = {0, -1, Integer.MIN_VALUE})
-    @DisplayName("메뉴의 개수가 1보다 작으면 예외가 발생한다")
-    void createServingLessThanOne(int value) {
+    @ValueSource(ints = {0, -1, 21, Integer.MAX_VALUE, Integer.MIN_VALUE})
+    @DisplayName("메뉴의 개수가 1보다 작거나 20보다 크면 예외가 발생한다")
+    void createServingFail(int value) {
         assertThatIllegalArgumentException().isThrownBy(() ->
                 new Serving(value)
         ).withMessage(NOT_INVALID_ORDER);
     }
 
     @ParameterizedTest
-    @ValueSource(ints = {1, 2, 10, Integer.MAX_VALUE})
-    @DisplayName("메뉴의 개수가 1 이상이면 정상적으로 객체를 생성한다.")
+    @ValueSource(ints = {1, 2, 19, 20})
+    @DisplayName("메뉴의 개수가 1~20 사이면 정상적으로 객체를 생성한다.")
     void createServingSuccessfully(int value) {
         Serving serving = new Serving(value);
         assertThat(serving.getValue()).isEqualTo(value);

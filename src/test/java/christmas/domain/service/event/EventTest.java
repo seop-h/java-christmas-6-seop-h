@@ -45,7 +45,7 @@ class EventTest {
     @Test
     @DisplayName("증정 이벤트의 값어치 계산이 정상적으로 적용되는지 확인한다.")
     void checkGiveawayWorth() {
-        assertThat(GIVEAWAY.calculateBenefitAmount(null)).isEqualTo(Menu.CHAMPAGNE.getPrice());
+        assertThat(GIVEAWAY.calculateBenefitAmount(null)).isEqualTo(25_000);
     }
 
 }

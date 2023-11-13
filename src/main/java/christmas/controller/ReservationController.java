@@ -1,18 +1,29 @@
 package christmas.controller;
 
 import christmas.controller.util.Conversion;
+import christmas.domain.model.Reservation;
+import christmas.domain.service.reservation.ReservationMaker;
 import christmas.ui.input.view.InputView;
 
 import java.util.Map;
 
 public class ReservationController {
 
-    public int initDate() {
+    private final ReservationMaker reservationMaker = new ReservationMaker();
+
+    public Reservation initReservation() {
+        int date = initDate();
+        Map<String, Integer> orders = initOrders();
+
+        return reservationMaker.makeReservation(date, orders);
+    }
+
+    private int initDate() {
         String date = InputView.readDate();
         return Conversion.toInt(date);
     }
 
-    public Map<String, Integer> initOrders() {
+    private Map<String, Integer> initOrders() {
         String orders = InputView.readMenu();
         return Conversion.toMap(orders);
     }

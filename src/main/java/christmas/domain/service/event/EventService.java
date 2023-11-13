@@ -89,13 +89,17 @@ public class EventService {
     }
 
     private void applyWeekend() {
-        int dish = reservation.countServingsOf(MAIN);
-        eventDetails.put(WEEKEND, WEEKEND.calculateBenefitAmount(dish));
+        int servings = reservation.countServingsOf(MAIN);
+        if (servings > 0) {
+            eventDetails.put(WEEKEND, WEEKEND.calculateBenefitAmount(servings));
+        }
     }
 
     private void applyWeekday() {
-        int dish = reservation.countServingsOf(DESSERT);
-        eventDetails.put(WEEKDAY, WEEKDAY.calculateBenefitAmount(dish));
+        int servings = reservation.countServingsOf(DESSERT);
+        if (servings > 0) {
+            eventDetails.put(WEEKDAY, WEEKDAY.calculateBenefitAmount(servings));
+        }
     }
 
 }

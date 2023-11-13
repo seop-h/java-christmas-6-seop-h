@@ -3,6 +3,7 @@ package christmas.ui.output;
 import java.text.DecimalFormat;
 import java.util.Map;
 
+import static christmas.ui.output.OutputMessage.EVENT_HISTORY;
 import static christmas.ui.output.OutputMessage.GIVEAWAY_MENU;
 import static christmas.ui.output.OutputMessage.INTRODUCE_PROMOTION;
 import static christmas.ui.output.OutputMessage.ORDER_MENU;
@@ -38,6 +39,15 @@ public class OutputView {
     public static void printGiveawayMenu(String menu, int count) {
         System.out.println(GIVEAWAY_MENU);
         System.out.println(OutputMessage.makeMenuDetail(menu, count));
+        System.out.println();
+    }
+
+    public static void printEventDetails(Map<String, Integer> details) {
+        System.out.println(EVENT_HISTORY);
+
+        for (Map.Entry<String, Integer> entry : details.entrySet()) {
+            System.out.println(OutputMessage.makeEventDetail(entry.getKey(), format(entry.getValue())));
+        }
         System.out.println();
     }
 

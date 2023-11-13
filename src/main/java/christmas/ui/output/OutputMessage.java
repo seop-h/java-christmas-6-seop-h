@@ -6,6 +6,7 @@ public interface OutputMessage {
     String ORDER_MENU = "<주문 메뉴>";
     String TOTAL_AMOUNT_BEFORE_DISCOUNT = "<할인 전 총주문 금액>";
     String GIVEAWAY_MENU = "<증정 메뉴>";
+    String EVENT_HISTORY = "<혜택 내역>";
 
     String UNIT = "원";
 
@@ -15,6 +16,10 @@ public interface OutputMessage {
 
     static String makeMenuDetail(String menuName, int serving) {
         return menuName + " " + serving + "개";
+    }
+
+    static String makeEventDetail(String eventName, String discountAmount) {
+        return eventName + ": -" + discountAmount + UNIT;
     }
 
 }

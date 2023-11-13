@@ -1,4 +1,4 @@
-package christmas.ui.input;
+package christmas.ui.input.view;
 
 import camp.nextstep.edu.missionutils.Console;
 

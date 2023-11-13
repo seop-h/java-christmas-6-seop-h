@@ -70,6 +70,7 @@
 
 - [x] 주문 메뉴를 출력한다. `printMenu()`
 - [x] 할인 전 총주문 금액을 출력한다. `printAmountBeforeDiscount()`
+
 - [x] 증정 메뉴를 출력한다. `printGiveawayMenu()`
 - [x] 혜택 내역을 출력한다. `printEventDetails()`
 - [x] 총헤택 금액을 출력한다. `printTotalBenefitAmount()`

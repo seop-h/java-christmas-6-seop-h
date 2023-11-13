@@ -21,6 +21,7 @@ import static christmas.domain.model.order.menu.Type.MAIN;
 
 public class EventService {
 
+    //TODO repository 별도로 만들기?
     private final Reservation reservation;
     private final Map<Event, Integer> eventDetails;
 

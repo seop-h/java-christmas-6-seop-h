@@ -3,6 +3,7 @@ package christmas.ui.output;
 import java.text.DecimalFormat;
 import java.util.Map;
 
+import static christmas.ui.output.OutputMessage.EVENT_BADGE;
 import static christmas.ui.output.OutputMessage.EVENT_HISTORY;
 import static christmas.ui.output.OutputMessage.GIVEAWAY_MENU;
 import static christmas.ui.output.OutputMessage.INTRODUCE_PROMOTION;
@@ -63,6 +64,11 @@ public class OutputView {
         System.out.println(TOTAL_AMOUNT_AFTER_DISCOUNT);
         System.out.println(format(amount) + UNIT);
         System.out.println();
+    }
+
+    public static void printBadge(String badge) {
+        System.out.println(EVENT_BADGE);
+        System.out.println(badge);
     }
 
     private static String format(int input) {

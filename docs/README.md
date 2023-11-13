@@ -74,7 +74,7 @@
 - [x] 혜택 내역을 출력한다. `printEventDetails()`
 - [x] 총헤택 금액을 출력한다. `printTotalBenefitAmount()`
 - [x] 할인 후 예상 결제 금액을 출력한다. `printAmountAfterDiscount()`
-- [ ] 이벤트 배지를 출력한다.
+- [x] 이벤트 배지를 출력한다. `printBadge()`
 
 ### 3) 컨트롤러 로직
 - [ ] 입력받은 방문 날짜를 날짜 저장 도메인 로직으로 넘긴다.

@@ -31,7 +31,7 @@ class EventServiceTest {
             Badge badgeExpected
     ) {
         ReservationMaker reservationMaker = new ReservationMaker();
-        Reservation reservation = reservationMaker.makeReservation(dateInput, orderInput);
+        Reservation reservation = reservationMaker.execute(dateInput, orderInput);
 
         EventService eventService = new EventService(reservation);
         eventService.applyEvent();

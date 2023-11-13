@@ -15,7 +15,7 @@ public class ReservationController {
         int date = initDate();
         Map<String, Integer> orders = initOrders();
 
-        return reservationMaker.makeReservation(date, orders);
+        return reservationMaker.execute(date, orders);
     }
 
     private int initDate() {

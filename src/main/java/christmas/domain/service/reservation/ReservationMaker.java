@@ -11,7 +11,7 @@ import java.util.Map;
 
 public class ReservationMaker {
 
-    public Reservation makeReservation(int dateInput, Map<String, Integer> orderInput) {
+    public Reservation execute(int dateInput, Map<String, Integer> orderInput) {
         Date date = new Date(dateInput);
         Map<Menu, Order> orders = makeOrders(orderInput);
 

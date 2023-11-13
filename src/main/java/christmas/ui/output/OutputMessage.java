@@ -11,6 +11,8 @@ public interface OutputMessage {
     String TOTAL_AMOUNT_AFTER_DISCOUNT = "<할인 후 예상 결제 금액>";
     String EVENT_BADGE = "<12월 이벤트 배지>";
 
+    String NOTHING = "없음";
+
     String UNIT = "원";
 
     static String makeEventOverview(int date) {

@@ -7,6 +7,7 @@ import static christmas.ui.output.OutputMessage.EVENT_BADGE;
 import static christmas.ui.output.OutputMessage.EVENT_HISTORY;
 import static christmas.ui.output.OutputMessage.GIVEAWAY_MENU;
 import static christmas.ui.output.OutputMessage.INTRODUCE_PROMOTION;
+import static christmas.ui.output.OutputMessage.NOTHING;
 import static christmas.ui.output.OutputMessage.ORDER_MENU;
 import static christmas.ui.output.OutputMessage.TOTAL_AMOUNT_AFTER_DISCOUNT;
 import static christmas.ui.output.OutputMessage.TOTAL_AMOUNT_BEFORE_DISCOUNT;
@@ -39,9 +40,13 @@ public class OutputView {
         System.out.println();
     }
 
-    public static void printGiveawayMenu(String menu, int count) {
+    public static void printGiveawayMenu(Map<String, Integer> giveaway) {
         System.out.println(GIVEAWAY_MENU);
-        System.out.println(OutputMessage.makeMenuDetail(menu, count));
+
+        for (Map.Entry<String, Integer> entry : giveaway.entrySet()) {
+            System.out.println(OutputMessage.makeMenuDetail(entry.getKey(), entry.getValue()));
+        }
+
         System.out.println();
     }
 

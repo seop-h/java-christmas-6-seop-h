@@ -8,6 +8,7 @@ import static christmas.ui.output.OutputMessage.GIVEAWAY_MENU;
 import static christmas.ui.output.OutputMessage.INTRODUCE_PROMOTION;
 import static christmas.ui.output.OutputMessage.ORDER_MENU;
 import static christmas.ui.output.OutputMessage.TOTAL_AMOUNT_BEFORE_DISCOUNT;
+import static christmas.ui.output.OutputMessage.TOTAL_BENEFIT_AMOUNT;
 import static christmas.ui.output.OutputMessage.UNIT;
 
 public class OutputView {
@@ -48,6 +49,12 @@ public class OutputView {
         for (Map.Entry<String, Integer> entry : details.entrySet()) {
             System.out.println(OutputMessage.makeEventDetail(entry.getKey(), format(entry.getValue())));
         }
+        System.out.println();
+    }
+
+    public static void printTotalBenefitAmount(int amount) {
+        System.out.println(TOTAL_BENEFIT_AMOUNT);
+        System.out.println(OutputMessage.makeTotalBenefitAmount(format(amount)));
         System.out.println();
     }
 

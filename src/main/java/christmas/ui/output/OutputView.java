@@ -3,6 +3,7 @@ package christmas.ui.output;
 import java.text.DecimalFormat;
 import java.util.Map;
 
+import static christmas.ui.output.OutputMessage.GIVEAWAY_MENU;
 import static christmas.ui.output.OutputMessage.INTRODUCE_PROMOTION;
 import static christmas.ui.output.OutputMessage.ORDER_MENU;
 import static christmas.ui.output.OutputMessage.TOTAL_AMOUNT_BEFORE_DISCOUNT;
@@ -31,6 +32,12 @@ public class OutputView {
     public static void printAmountBeforeDiscount(int amount) {
         System.out.println(TOTAL_AMOUNT_BEFORE_DISCOUNT);
         System.out.println(format(amount) + UNIT);
+        System.out.println();
+    }
+
+    public static void printGiveawayMenu(String menu, int count) {
+        System.out.println(GIVEAWAY_MENU);
+        System.out.println(OutputMessage.makeMenuDetail(menu, count));
         System.out.println();
     }
 

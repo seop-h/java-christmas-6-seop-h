@@ -5,6 +5,7 @@ public interface OutputMessage {
     String INTRODUCE_PROMOTION = "안녕하세요! 우테코 식당 12월 이벤트 플래너입니다.";
     String ORDER_MENU = "<주문 메뉴>";
     String TOTAL_AMOUNT_BEFORE_DISCOUNT = "<할인 전 총주문 금액>";
+    String GIVEAWAY_MENU = "<증정 메뉴>";
 
     String UNIT = "원";
 

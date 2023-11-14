@@ -31,6 +31,11 @@ public class EventController {
         OrderOutputView.printAmountAfterDiscount(service.calculateExpectedPayAmount());
     }
 
+    public void showBadge() {
+        Badge badge = service.giveBadge();
+        EventOutputView.printBadge(badge.toString());
+    }
+
     private void showGiveaway(Map<Event, Integer> eventDetails) {
         String giveaway = null;
         if (eventDetails.containsKey(Event.GIVEAWAY)) {

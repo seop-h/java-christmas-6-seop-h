@@ -4,6 +4,7 @@ import christmas.controller.util.Conversion;
 import christmas.domain.model.Reservation;
 import christmas.domain.service.reservation.ReservationMaker;
 import christmas.ui.input.view.InputView;
+import christmas.ui.output.view.IntroOutputView;
 
 import java.util.Map;
 
@@ -12,6 +13,8 @@ public class ReservationController {
     private final ReservationMaker reservationMaker = new ReservationMaker();
 
     public Reservation initReservation() {
+        IntroOutputView.printIntroduction();
+
         int date = initDate();
         Map<String, Integer> orders = initOrders();
 

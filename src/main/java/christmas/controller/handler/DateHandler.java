@@ -1,13 +1,14 @@
 package christmas.controller.handler;
 
 import christmas.controller.util.Conversion;
+import christmas.domain.model.date.Date;
 import christmas.ui.input.view.InputView;
 
 public class DateHandler {
 
-    public static int process() {
+    public static Date process() {
         String input;
-        Integer result;
+        Date result;
 
         do {
             input = InputView.readDate();
@@ -16,9 +17,10 @@ public class DateHandler {
         return result;
     }
 
-    private static Integer changeInput(String input) {
+    private static Date changeInput(String input) {
         try {
-            return Conversion.toInt(input);
+            int value = Conversion.toInt(input);
+            return new Date(value);
         } catch (IllegalArgumentException e) {
             System.out.println(e.getMessage());
             return null;

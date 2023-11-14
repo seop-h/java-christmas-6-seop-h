@@ -1,12 +1,12 @@
 package christmas.domain.service.event;
 
 import christmas.domain.model.Reservation;
-import christmas.domain.model.order.menu.Menu;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
 
 import static christmas.domain.model.date.DateConst.CHRISTMAS;
+import static christmas.domain.service.event.Badge.NOTHING;
 import static christmas.domain.service.event.EventLimitConst.MINIMUM_POSSIBLE_EVENT;
 import static christmas.domain.service.event.EventLimitConst.MINIMUM_POSSIBLE_GIVEAWAY;
 import static christmas.domain.service.event.Badge.SANTA;
@@ -54,10 +54,10 @@ public class EventService {
         if (STAR.isAmountSatisfied(amount)) {
             return STAR;
         }
-        return null;
+        return NOTHING;
     }
 
-    private int calculateTotalBenefitAmount() {
+    public int calculateTotalBenefitAmount() {
         return eventDetails.values().stream()
                 .mapToInt(Integer::intValue)
                 .sum();

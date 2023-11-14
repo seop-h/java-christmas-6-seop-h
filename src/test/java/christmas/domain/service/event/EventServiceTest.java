@@ -56,14 +56,14 @@ class EventServiceTest {
                 Arguments.of(31, orderInputs.get(1), eventDetails.get(5), Badge.SANTA),
 
                 Arguments.of(3, orderInputs.get(2), eventDetails.get(6), Badge.TREE),
-                Arguments.of(15, orderInputs.get(2), eventDetails.get(7), null),
+                Arguments.of(15, orderInputs.get(2), eventDetails.get(7), Badge.NOTHING),
                 Arguments.of(28, orderInputs.get(2), eventDetails.get(8), Badge.STAR),
 
-                Arguments.of(12, orderInputs.get(3), eventDetails.get(9), null),
-                Arguments.of(27, orderInputs.get(3), eventDetails.get(10), null),
-                Arguments.of(29, orderInputs.get(3), eventDetails.get(11), null),
+                Arguments.of(12, orderInputs.get(3), eventDetails.get(9), Badge.NOTHING),
+                Arguments.of(27, orderInputs.get(3), eventDetails.get(10), Badge.NOTHING),
+                Arguments.of(29, orderInputs.get(3), eventDetails.get(11), Badge.NOTHING),
 
-                Arguments.of(25, orderInputs.get(4), eventDetails.get(12), null)
+                Arguments.of(25, orderInputs.get(4), eventDetails.get(12), Badge.NOTHING)
         );
     }
 

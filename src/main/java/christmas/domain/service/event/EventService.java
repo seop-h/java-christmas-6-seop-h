@@ -20,6 +20,9 @@ import static christmas.domain.service.event.Event.WEEKEND;
 import static christmas.domain.model.order.menu.Type.DESSERT;
 import static christmas.domain.model.order.menu.Type.MAIN;
 
+
+//TODO 서비스 쪼개기? -> 할인 내역 적용, 할인 금액 계산, 뱃지 부여 등등
+//      하나의 레포지토리를 공유하면서
 public class EventService {
 
     //TODO repository 별도로 만들기?
@@ -73,6 +76,10 @@ public class EventService {
         }
 
         return expectedPayAmount;
+    }
+
+    public Map<Event, Integer> getEventDetails() {
+        return eventDetails;
     }
 
     private void applyChristmasDDay() {

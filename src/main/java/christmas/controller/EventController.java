@@ -40,8 +40,8 @@ public class EventController {
         String giveaway = null;
         if (eventDetails.containsKey(Event.GIVEAWAY)) {
             giveaway = EventAmountConst.GIVEAWAY_PRODUCT.toString();
-            EventOutputView.printGiveawayMenu(giveaway);
         }
+        EventOutputView.printGiveawayMenu(giveaway);
     }
 
     private void showEventDetails(Map<Event, Integer> eventDetails) {

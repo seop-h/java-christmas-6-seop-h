@@ -5,7 +5,8 @@ import christmas.domain.model.order.menu.Menu;
 import christmas.domain.model.order.menu.Type;
 import christmas.domain.model.order.Order;
 
-import java.util.LinkedHashMap;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
 import static christmas.domain.Validator.checkCondition;
@@ -50,12 +51,13 @@ public class Reservation {
     }
 
     //TODO DTO 고민
-    public Map<String, Integer> getOrderDetails() {
-        Map<String, Integer> result = new LinkedHashMap<>();
+    public List<String> getOrderDetails() {
+        List<String> result = new ArrayList<>();
 
-        for (Map.Entry<Menu, Order> order : orders.entrySet()) {
-            result.put(order.getKey().getName(), order.getValue().getServingValue());
+        for (Order order : orders.values()) {
+            result.add(order.toString());
         }
+
         return result;
     }
 

@@ -13,17 +13,15 @@ import static christmas.ui.output.OutputMessage.TOTAL_BENEFIT_AMOUNT;
 
 public class EventOutputView {
 
-    public static void printGiveawayMenu(Map<String, Integer> giveaway) {
+    public static void printGiveawayMenu(String giveaway) {
         System.out.println(GIVEAWAY_MENU);
 
-        if (giveaway.size() == 0) {
+        if (giveaway == null) {
             printNothing();
             return;
         }
 
-        for (Map.Entry<String, Integer> entry : giveaway.entrySet()) {
-            System.out.println(OutputMessage.makeMenuDetail(entry.getKey(), entry.getValue()));
-        }
+        System.out.println(giveaway);
         System.out.println();
     }
 

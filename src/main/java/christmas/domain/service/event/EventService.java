@@ -57,16 +57,6 @@ public class EventService {
         return null;
     }
 
-    public Map<String, Integer> getEventDetails() {
-        Map<String, Integer> result = new LinkedHashMap<>();
-
-        for (Map.Entry<Event, Integer> entry : eventDetails.entrySet()) {
-            result.put(entry.getKey().getDescription(), entry.getValue());
-        }
-
-        return result;
-    }
-
     private int calculateTotalBenefitAmount() {
         return eventDetails.values().stream()
                 .mapToInt(Integer::intValue)

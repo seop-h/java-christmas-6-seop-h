@@ -4,9 +4,6 @@ import christmas.domain.model.order.menu.Menu;
 import christmas.domain.model.order.menu.Serving;
 import christmas.domain.model.order.menu.Type;
 
-import static christmas.domain.Validator.checkCondition;
-import static christmas.constant.ErrorMessage.NOT_INVALID_ORDER;
-
 public class Order {
 
     private final Menu menu;
@@ -29,4 +26,8 @@ public class Order {
         return serving.getValue();
     }
 
+    @Override
+    public String toString() {
+        return menu.getName() + " " + getServingValue() + "개";
+    }
 }

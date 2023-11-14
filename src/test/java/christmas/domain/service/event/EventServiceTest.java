@@ -1,6 +1,7 @@
 package christmas.domain.service.event;
 
 import christmas.domain.model.Reservation;
+import christmas.domain.model.date.Date;
 import christmas.domain.service.reservation.ReservationMaker;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -30,8 +31,8 @@ class EventServiceTest {
             Map<Event, Integer> eventDetailsExpected,
             Badge badgeExpected
     ) {
-        ReservationMaker reservationMaker = new ReservationMaker();
-        Reservation reservation = reservationMaker.execute(dateInput, orderInput);
+        Date date = new Date(dateInput);
+        Reservation reservation = ReservationMaker.execute(date, orderInput);
 
         EventService eventService = new EventService(reservation);
         eventService.applyEvent();

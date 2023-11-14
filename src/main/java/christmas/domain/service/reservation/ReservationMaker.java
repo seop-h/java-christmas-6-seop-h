@@ -11,14 +11,13 @@ import java.util.Map;
 
 public class ReservationMaker {
 
-    public Reservation execute(int dateInput, Map<String, Integer> orderInput) {
-        Date date = new Date(dateInput);
+    public static Reservation execute(Date date, Map<String, Integer> orderInput) {
         Map<Menu, Order> orders = makeOrders(orderInput);
 
         return new Reservation(date, orders);
     }
 
-    private Map<Menu, Order> makeOrders(Map<String, Integer> orderInput) {
+    private static Map<Menu, Order> makeOrders(Map<String, Integer> orderInput) {
         Map<Menu, Order> orders = new LinkedHashMap<>();
 
         for (Map.Entry<String, Integer> entry : orderInput.entrySet()) {

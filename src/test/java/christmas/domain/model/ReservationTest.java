@@ -1,6 +1,7 @@
 package christmas.domain.model;
 
 import christmas.constant.ErrorMessage;
+import christmas.domain.model.date.Date;
 import christmas.domain.model.order.menu.Type;
 import christmas.domain.service.reservation.ReservationMaker;
 import christmas.message.StackTrace;
@@ -18,14 +19,12 @@ import static org.assertj.core.api.Assertions.assertThatIllegalArgumentException
 
 class ReservationTest {
 
-    private final ReservationMaker maker = new ReservationMaker();
-
     @ParameterizedTest
     @MethodSource("makeReservationIncorrectly")
     @DisplayName("주문 메뉴의 총 개수가 20개를 넘거나 음료밖에 없으면 예외가 발생한다.")
     void createReservationMoreThan20(Map<String, Integer> orderInput) {
         assertThatIllegalArgumentException().isThrownBy(() ->
-                        maker.execute(1, orderInput)
+                        ReservationMaker.execute(new Date(5), orderInput)
                 ).withMessage(ErrorMessage.NOT_INVALID_ORDER)
                 .withStackTraceContaining(StackTrace.RESERVATION_VALIDATE);
     }
@@ -34,7 +33,7 @@ class ReservationTest {
     @MethodSource("ordersAndEachServingCount")
     @DisplayName("특정 타입의 메뉴 개수가 기대하는 값과 일치하는지 검사한다.")
     void checkCountOfSpecificType(Map<String, Integer> orderInput, int appetizerCount, int mainCount, int dessertCount, int beverageCount) {
-        Reservation reservation = maker.execute(5, orderInput);
+        Reservation reservation = ReservationMaker.execute(new Date(5), orderInput);
 
         assertThat(reservation.countServingsOf(Type.APPETIZER)).isEqualTo(appetizerCount);
         assertThat(reservation.countServingsOf(Type.MAIN)).isEqualTo(mainCount);
@@ -46,7 +45,7 @@ class ReservationTest {
     @MethodSource("ordersAndTotalOrderAmount")
     @DisplayName("총 주문 금액이 기대하는 값과 일치하는지 검사한다.")
     void checkTotalOrderAmount(Map<String, Integer> orderInput, int expected) {
-        Reservation reservation = maker.execute(5, orderInput);
+        Reservation reservation = ReservationMaker.execute(new Date(5), orderInput);
 
         assertThat(reservation.calculateTotalOrderAmount()).isEqualTo(expected);
 

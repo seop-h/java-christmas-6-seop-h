@@ -1,6 +1,7 @@
 package christmas.domain.service.event;
 
 import christmas.domain.model.Reservation;
+import christmas.domain.model.order.menu.Menu;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
@@ -54,6 +55,16 @@ public class EventService {
             return STAR;
         }
         return null;
+    }
+
+    public Map<String, Integer> getEventDetails() {
+        Map<String, Integer> result = new LinkedHashMap<>();
+
+        for (Map.Entry<Event, Integer> entry : eventDetails.entrySet()) {
+            result.put(entry.getKey().getDescription(), entry.getValue());
+        }
+
+        return result;
     }
 
     private int calculateTotalBenefitAmount() {

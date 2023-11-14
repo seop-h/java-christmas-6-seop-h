@@ -81,6 +81,14 @@ public enum Event {
         this.discountIncrement = null;
     }
 
+    public Map<Menu, Integer> getProduct() {
+        return product;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
     public abstract int calculateBenefitAmount(Integer consideredValue);
 
 }

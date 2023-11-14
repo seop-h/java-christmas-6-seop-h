@@ -30,6 +30,9 @@ public interface OutputMessage {
     }
 
     static String makeTotalBenefitAmount(String discountAmount) {
+        if (discountAmount.equals("0")) {
+            return discountAmount + UNIT;
+        }
         return "-" + discountAmount + UNIT;
     }
 

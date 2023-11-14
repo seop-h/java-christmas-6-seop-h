@@ -1,5 +1,7 @@
 package christmas.controller;
 
+import christmas.controller.handler.DateHandler;
+import christmas.controller.handler.OrderHandler;
 import christmas.controller.util.Conversion;
 import christmas.domain.model.Reservation;
 import christmas.domain.service.reservation.ReservationMaker;
@@ -15,20 +17,10 @@ public class ReservationController {
     public Reservation initReservation() {
         IntroOutputView.printIntroduction();
 
-        int date = initDate();
-        Map<String, Integer> orders = initOrders();
+        int date = DateHandler.process();
+        Map<String, Integer> orders = OrderHandler.process();
 
         return reservationMaker.execute(date, orders);
-    }
-
-    private int initDate() {
-        String date = InputView.readDate();
-        return Conversion.toInt(date);
-    }
-
-    private Map<String, Integer> initOrders() {
-        String orders = InputView.readMenu();
-        return Conversion.toMap(orders);
     }
 
 }

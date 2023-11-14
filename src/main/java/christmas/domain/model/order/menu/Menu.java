@@ -45,6 +45,10 @@ public enum Menu {
         return this.type.equals(expected);
     }
 
+    public String getName() {
+        return name;
+    }
+
     public int getPrice() {
         return price;
     }

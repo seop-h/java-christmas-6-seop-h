@@ -5,6 +5,7 @@ import christmas.domain.model.order.menu.Menu;
 import christmas.domain.model.order.menu.Type;
 import christmas.domain.model.order.Order;
 
+import java.util.LinkedHashMap;
 import java.util.Map;
 
 import static christmas.domain.Validator.checkCondition;
@@ -46,6 +47,16 @@ public class Reservation {
         return orders.values().stream()
                 .mapToInt(Order::calculateOrderAmount)
                 .sum();
+    }
+
+    //TODO DTO 고민
+    public Map<String, Integer> getOrderDetails() {
+        Map<String, Integer> result = new LinkedHashMap<>();
+
+        for (Map.Entry<Menu, Order> order : orders.entrySet()) {
+            result.put(order.getKey().getName(), order.getValue().getServingValue());
+        }
+        return result;
     }
 
     private void validate(Map<Menu, Order> orders) {

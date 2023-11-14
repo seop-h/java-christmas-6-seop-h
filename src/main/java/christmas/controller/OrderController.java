@@ -17,4 +17,8 @@ public class OrderController {
 
         OrderOutputView.printMenu(reservation.getOrderDetails());
     }
+
+    public void showTotalAmountBeforeDiscount() {
+        OrderOutputView.printAmountBeforeDiscount(reservation.calculateTotalOrderAmount());
+    }
 }

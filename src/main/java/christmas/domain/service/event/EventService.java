@@ -24,6 +24,8 @@ public class EventService {
 
     //TODO repository 별도로 만들기?
     private final Reservation reservation;
+    //TODO Event와 할인금액(int)을 저장하는 객체 하나 만들기?
+    //      자료구조는 Map -> Set
     private final Map<Event, Integer> eventDetails;
 
     public EventService(Reservation reservation) {
@@ -61,6 +63,16 @@ public class EventService {
         return eventDetails.values().stream()
                 .mapToInt(Integer::intValue)
                 .sum();
+    }
+
+    public int calculateExpectedPayAmount() {
+        int expectedPayAmount = reservation.calculateTotalOrderAmount() - calculateTotalBenefitAmount();
+
+        if (eventDetails.containsKey(GIVEAWAY)) {
+            expectedPayAmount += EventAmountConst.GIVEAWAY_PRODUCT.calculateOrderAmount();
+        }
+
+        return expectedPayAmount;
     }
 
     private void applyChristmasDDay() {

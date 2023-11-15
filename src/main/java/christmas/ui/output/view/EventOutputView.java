@@ -9,7 +9,9 @@ import static christmas.ui.output.OutputMessage.EVENT_BADGE;
 import static christmas.ui.output.OutputMessage.EVENT_HISTORY;
 import static christmas.ui.output.OutputMessage.GIVEAWAY_MENU;
 import static christmas.ui.output.OutputMessage.NOTHING;
+import static christmas.ui.output.OutputMessage.TOTAL_AMOUNT_AFTER_DISCOUNT;
 import static christmas.ui.output.OutputMessage.TOTAL_BENEFIT_AMOUNT;
+import static christmas.ui.output.OutputMessage.UNIT;
 
 public class EventOutputView {
 
@@ -48,6 +50,12 @@ public class EventOutputView {
     public static void printBadge(String badge) {
         System.out.println(EVENT_BADGE);
         System.out.println(badge);
+    }
+
+    public static void printAmountAfterDiscount(int amount) {
+        System.out.println(TOTAL_AMOUNT_AFTER_DISCOUNT);
+        System.out.println(AmountFormatter.format(amount) + UNIT);
+        System.out.println();
     }
 
     private static void printNothing() {

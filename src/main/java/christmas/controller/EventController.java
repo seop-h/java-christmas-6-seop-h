@@ -4,9 +4,7 @@ import christmas.domain.service.event.Badge;
 import christmas.domain.service.event.Event;
 import christmas.domain.service.event.EventAmountConst;
 import christmas.domain.service.event.EventService;
-import christmas.ui.output.OutputMessage;
 import christmas.ui.output.view.EventOutputView;
-import christmas.ui.output.view.OrderOutputView;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
@@ -28,7 +26,7 @@ public class EventController {
         showEventDetails(eventDetails);
 
         EventOutputView.printTotalBenefitAmount(service.calculateTotalBenefitAmount());
-        OrderOutputView.printAmountAfterDiscount(service.calculateExpectedPayAmount());
+        EventOutputView.printAmountAfterDiscount(service.calculateExpectedPayAmount());
     }
 
     public void showBadge() {

@@ -26,10 +26,4 @@ public class OrderOutputView {
         System.out.println();
     }
 
-    public static void printAmountAfterDiscount(int amount) {
-        System.out.println(TOTAL_AMOUNT_AFTER_DISCOUNT);
-        System.out.println(AmountFormatter.format(amount) + UNIT);
-        System.out.println();
-    }
-
 }

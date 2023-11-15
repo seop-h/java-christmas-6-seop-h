@@ -1,22 +1,25 @@
 package christmas.domain.service.event;
 
 import christmas.domain.model.Reservation;
+import christmas.domain.model.event.Badge;
+import christmas.domain.model.event.Event;
+import christmas.domain.model.event.EventAmountConst;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
 
 import static christmas.domain.model.date.DateConst.CHRISTMAS;
-import static christmas.domain.service.event.Badge.NOTHING;
-import static christmas.domain.service.event.EventLimitConst.MINIMUM_POSSIBLE_EVENT;
-import static christmas.domain.service.event.EventLimitConst.MINIMUM_POSSIBLE_GIVEAWAY;
-import static christmas.domain.service.event.Badge.SANTA;
-import static christmas.domain.service.event.Badge.STAR;
-import static christmas.domain.service.event.Badge.TREE;
-import static christmas.domain.service.event.Event.CHRISTMAS_D_DAY;
-import static christmas.domain.service.event.Event.GIVEAWAY;
-import static christmas.domain.service.event.Event.SPECIAL;
-import static christmas.domain.service.event.Event.WEEKDAY;
-import static christmas.domain.service.event.Event.WEEKEND;
+import static christmas.domain.model.event.Badge.NOTHING;
+import static christmas.domain.model.event.EventLimitConst.MINIMUM_POSSIBLE_EVENT;
+import static christmas.domain.model.event.EventLimitConst.MINIMUM_POSSIBLE_GIVEAWAY;
+import static christmas.domain.model.event.Badge.SANTA;
+import static christmas.domain.model.event.Badge.STAR;
+import static christmas.domain.model.event.Badge.TREE;
+import static christmas.domain.model.event.Event.CHRISTMAS_D_DAY;
+import static christmas.domain.model.event.Event.GIVEAWAY;
+import static christmas.domain.model.event.Event.SPECIAL;
+import static christmas.domain.model.event.Event.WEEKDAY;
+import static christmas.domain.model.event.Event.WEEKEND;
 import static christmas.domain.model.order.menu.Type.DESSERT;
 import static christmas.domain.model.order.menu.Type.MAIN;
 

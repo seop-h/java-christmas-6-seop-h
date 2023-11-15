@@ -1,4 +1,4 @@
-package christmas.domain.service.event;
+package christmas.domain.model.event;
 
 import christmas.domain.model.order.Order;
 import christmas.domain.model.order.menu.Menu;

@@ -1,8 +1,8 @@
 package christmas.controller;
 
-import christmas.domain.service.event.Badge;
-import christmas.domain.service.event.Event;
-import christmas.domain.service.event.EventAmountConst;
+import christmas.domain.model.event.Badge;
+import christmas.domain.model.event.Event;
+import christmas.domain.model.event.EventAmountConst;
 import christmas.domain.service.event.EventService;
 import christmas.ui.output.view.EventOutputView;
 

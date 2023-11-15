@@ -1,14 +1,10 @@
-package christmas.domain.service.event;
+package christmas.domain.model.event;
 
-import christmas.domain.model.order.menu.Menu;
-
-import java.util.Map;
-
-import static christmas.domain.service.event.EventAmountConst.D_DAY_INCREMENT;
-import static christmas.domain.service.event.EventAmountConst.D_DAY_START;
-import static christmas.domain.service.event.EventAmountConst.GIVEAWAY_PRODUCT;
-import static christmas.domain.service.event.EventAmountConst.PER_MENU;
-import static christmas.domain.service.event.EventAmountConst.SPECIAL_AMOUNT;
+import static christmas.domain.model.event.EventAmountConst.D_DAY_INCREMENT;
+import static christmas.domain.model.event.EventAmountConst.D_DAY_START;
+import static christmas.domain.model.event.EventAmountConst.GIVEAWAY_PRODUCT;
+import static christmas.domain.model.event.EventAmountConst.PER_MENU;
+import static christmas.domain.model.event.EventAmountConst.SPECIAL_AMOUNT;
 
 /**
  * 이벤트 내용을 저장하고 있는 enum 클래스다.<br>

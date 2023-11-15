@@ -1,5 +1,6 @@
 package christmas.domain.service.event;
 
+import christmas.domain.model.event.Badge;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;

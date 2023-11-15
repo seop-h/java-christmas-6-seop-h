@@ -1,6 +1,6 @@
 package christmas.ui.output.view;
 
-import christmas.ui.output.AmountFormatter;
+import christmas.util.AmountFormatter;
 import christmas.ui.output.OutputMessage;
 
 import java.util.Map;

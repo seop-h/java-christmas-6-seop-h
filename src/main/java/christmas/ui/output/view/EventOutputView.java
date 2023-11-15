@@ -3,6 +3,7 @@ package christmas.ui.output.view;
 import christmas.util.AmountFormatter;
 import christmas.ui.output.OutputMessage;
 
+import java.util.List;
 import java.util.Map;
 
 import static christmas.ui.output.OutputMessage.EVENT_BADGE;
@@ -27,7 +28,7 @@ public class EventOutputView {
         System.out.println();
     }
 
-    public static void printEventDetails(Map<String, Integer> details) {
+    public static void printEventDetails(List<String> details) {
         System.out.println(EVENT_HISTORY);
 
         if (details.size() == 0) {
@@ -35,8 +36,8 @@ public class EventOutputView {
             return;
         }
 
-        for (Map.Entry<String, Integer> entry : details.entrySet()) {
-            System.out.println(OutputMessage.makeEventDetail(entry.getKey(), AmountFormatter.format(entry.getValue())));
+        for (String detail : details) {
+            System.out.println(detail);
         }
         System.out.println();
     }

@@ -3,7 +3,8 @@ package christmas.domain.service.event;
 import christmas.domain.model.Reservation;
 import christmas.domain.model.date.Date;
 import christmas.domain.model.event.Badge;
-import christmas.domain.model.event.Event;
+import christmas.domain.model.event.EventDetail;
+import christmas.domain.repository.PromotionStore;
 import christmas.domain.service.reservation.ReservationMaker;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -13,6 +14,7 @@ import org.junit.jupiter.params.provider.MethodSource;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 import java.util.stream.Stream;
 
 import static christmas.domain.model.event.Event.CHRISTMAS_D_DAY;
@@ -30,24 +32,33 @@ class EventServiceTest {
     void checkAllEventsCorrectlyApply(
             int dateInput,
             Map<String, Integer> orderInput,
-            Map<Event, Integer> eventDetailsExpected,
+            List<EventDetail> eventDetailsExpected,
             Badge badgeExpected
     ) {
+        initialize(dateInput, orderInput);
+
+        EventApplyService applyService = new EventApplyService();
+        EventCalculateService calculateService = new EventCalculateService();
+
+        applyService.applyEvent();
+
+        assertThat(applyService)
+                .extracting("eventRepository")
+                .extracting("eventDetails")
+                .usingRecursiveComparison()
+                .isEqualTo(eventDetailsExpected);
+        assertThat(calculateService.giveBadge()).isEqualTo(badgeExpected);
+    }
+
+    private void initialize(int dateInput, Map<String, Integer> orderInput) {
         Date date = new Date(dateInput);
         Reservation reservation = ReservationMaker.execute(date, orderInput);
-
-        EventService eventService = new EventService(reservation);
-        eventService.applyEvent();
-
-        assertThat(eventService)
-                .extracting("eventDetails")
-                .isEqualTo(eventDetailsExpected);
-        assertThat(eventService.giveBadge()).isEqualTo(badgeExpected);
+        PromotionStore.initialize(reservation);
     }
 
     private static Stream<Arguments> dateAndOrdersAndEventDetails() {
         List<Map<String, Integer>> orderInputs = makeOrderInputs();
-        List<Map<Event, Integer>> eventDetails = makeEventDetails();
+        List<List<EventDetail>> eventDetails = makeEventDetails();
 
         return Stream.of(
                 Arguments.of(1, orderInputs.get(0), eventDetails.get(0), Badge.SANTA),
@@ -113,73 +124,73 @@ class EventServiceTest {
         return result;
     }
 
-    private static List<Map<Event, Integer>> makeEventDetails() {
-        List<Map<Event, Integer>> result = new ArrayList<>();
+    private static List<List<EventDetail>> makeEventDetails() {
+        List<List<EventDetail>> result = new ArrayList<>();
 
-        result.add(Map.ofEntries(
-                Map.entry(CHRISTMAS_D_DAY, 1_000),
-                Map.entry(WEEKEND, 14_161),
-                Map.entry(GIVEAWAY, 25_000)
+        result.add(List.of(
+                new EventDetail(CHRISTMAS_D_DAY, 1_000),
+                new EventDetail(WEEKEND, 14_161),
+                new EventDetail(GIVEAWAY, 25_000)
         )); //1일, makeOrderInputs().get(0)의 이벤트 적용 내역
 
-        result.add(Map.ofEntries(
-                Map.entry(CHRISTMAS_D_DAY, 1_900),
-                Map.entry(WEEKDAY, 10_115),
-                Map.entry(SPECIAL, 1_000),
-                Map.entry(GIVEAWAY, 25_000)
+        result.add(List.of(
+                new EventDetail(CHRISTMAS_D_DAY, 1_900),
+                new EventDetail(WEEKDAY, 10_115),
+                new EventDetail(SPECIAL, 1_000),
+                new EventDetail(GIVEAWAY, 25_000)
         )); //10일, makeOrderInputs().get(0)의 이벤트 적용 내역
 
-        result.add(Map.ofEntries(
-                Map.entry(CHRISTMAS_D_DAY, 3_400),
-                Map.entry(WEEKDAY, 10_115),
-                Map.entry(SPECIAL, 1_000),
-                Map.entry(GIVEAWAY, 25_000)
+        result.add(List.of(
+                new EventDetail(CHRISTMAS_D_DAY, 3_400),
+                new EventDetail(WEEKDAY, 10_115),
+                new EventDetail(SPECIAL, 1_000),
+                new EventDetail(GIVEAWAY, 25_000)
         )); //25일, makeOrderInputs().get(0)의 이벤트 적용 내역
 
-        result.add(Map.ofEntries(
-                Map.entry(CHRISTMAS_D_DAY, 1_400),
-                Map.entry(WEEKDAY, 8_092),
-                Map.entry(GIVEAWAY, 25_000)
+        result.add(List.of(
+                new EventDetail(CHRISTMAS_D_DAY, 1_400),
+                new EventDetail(WEEKDAY, 8_092),
+                new EventDetail(GIVEAWAY, 25_000)
         )); //5일, makeOrderInputs().get(1)의 이벤트 적용 내역
 
-        result.add(Map.ofEntries(
-                Map.entry(CHRISTMAS_D_DAY, 1_800),
-                Map.entry(WEEKEND, 2_023),
-                Map.entry(GIVEAWAY, 25_000)
+        result.add(List.of(
+                new EventDetail(CHRISTMAS_D_DAY, 1_800),
+                new EventDetail(WEEKEND, 2_023),
+                new EventDetail(GIVEAWAY, 25_000)
         )); //9일, makeOrderInputs().get(1)의 이벤트 적용 내역
 
-        result.add(Map.ofEntries(
-                Map.entry(WEEKDAY, 8_092),
-                Map.entry(SPECIAL, 1_000),
-                Map.entry(GIVEAWAY, 25_000)
+        result.add(List.of(
+                new EventDetail(WEEKDAY, 8_092),
+                new EventDetail(SPECIAL, 1_000),
+                new EventDetail(GIVEAWAY, 25_000)
         )); //31일, makeOrderInputs().get(1)의 이벤트 적용 내역
 
-        result.add(Map.ofEntries(
-                Map.entry(CHRISTMAS_D_DAY, 1_200),
-                Map.entry(WEEKDAY, 8_092),
-                Map.entry(SPECIAL, 1_000)
+        result.add(List.of(
+                new EventDetail(CHRISTMAS_D_DAY, 1_200),
+                new EventDetail(WEEKDAY, 8_092),
+                new EventDetail(SPECIAL, 1_000)
         )); //3일, makeOrderInputs().get(2)의 이벤트 적용 내역
 
-        result.add(Map.ofEntries(
-                Map.entry(CHRISTMAS_D_DAY, 2_400)
+        result.add(List.of(
+                new EventDetail(CHRISTMAS_D_DAY, 2_400)
         )); //15일, makeOrderInputs().get(2)의 이벤트 적용 내역
 
-        result.add(Map.ofEntries(
-                Map.entry(WEEKDAY, 8_092)
+        result.add(List.of(
+                new EventDetail(WEEKDAY, 8_092)
         )); //28일, makeOrderInputs().get(2)의 이벤트 적용 내역
 
-        result.add(Map.ofEntries(
-                Map.entry(CHRISTMAS_D_DAY, 2_100)
+        result.add(List.of(
+                new EventDetail(CHRISTMAS_D_DAY, 2_100)
         )); //12일, makeOrderInputs().get(3)의 이벤트 적용 내역
 
-        result.add(Map.ofEntries(
+        result.add(List.of(
         )); //27일, makeOrderInputs().get(3)의 이벤트 적용 내역
 
-        result.add(Map.ofEntries(
-                Map.entry(WEEKEND, 2_023)
+        result.add(List.of(
+                new EventDetail(WEEKEND, 2_023)
         )); //29일, makeOrderInputs().get(3)의 이벤트 적용 내역
 
-        result.add(Map.ofEntries(
+        result.add(List.of(
         )); //25일, makeOrderInputs().get(4)의 이벤트 적용 내역
 
         return result;

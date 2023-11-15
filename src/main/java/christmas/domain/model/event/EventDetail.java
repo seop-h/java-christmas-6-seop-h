@@ -12,6 +12,14 @@ public class EventDetail {
         this.discount = discount;
     }
 
+    public boolean isKindOf(Event event) {
+        return (event.equals(event));
+    }
+
+    public int getDiscount() {
+        return discount;
+    }
+
     @Override
     public String toString() {
         return event.getDescription() + ": -" + AmountFormatter.format(discount) + "원";

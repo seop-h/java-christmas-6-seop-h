@@ -1,25 +1,24 @@
 package christmas.domain.service.event;
 
+import static christmas.domain.model.date.DateConst.CHRISTMAS;
+import static christmas.domain.model.event.Event.CHRISTMAS_D_DAY;
+import static christmas.domain.model.event.Event.GIVEAWAY;
+import static christmas.domain.model.event.Event.SPECIAL;
+import static christmas.domain.model.event.Event.WEEKDAY;
+import static christmas.domain.model.event.Event.WEEKEND;
+import static christmas.domain.model.event.EventLimitConst.MINIMUM_POSSIBLE_EVENT;
+import static christmas.domain.model.event.EventLimitConst.MINIMUM_POSSIBLE_GIVEAWAY;
+import static christmas.domain.model.order.menu.Type.DESSERT;
+import static christmas.domain.model.order.menu.Type.MAIN;
+
 import christmas.domain.model.Reservation;
 import christmas.domain.model.event.Event;
 import christmas.domain.model.event.EventAmountConst;
 import christmas.domain.model.event.EventDetail;
 import christmas.domain.repository.EventRepository;
 import christmas.domain.repository.PromotionStore;
-
 import java.util.ArrayList;
 import java.util.List;
-
-import static christmas.domain.model.date.DateConst.CHRISTMAS;
-import static christmas.domain.model.event.EventLimitConst.MINIMUM_POSSIBLE_EVENT;
-import static christmas.domain.model.event.EventLimitConst.MINIMUM_POSSIBLE_GIVEAWAY;
-import static christmas.domain.model.event.Event.CHRISTMAS_D_DAY;
-import static christmas.domain.model.event.Event.GIVEAWAY;
-import static christmas.domain.model.event.Event.SPECIAL;
-import static christmas.domain.model.event.Event.WEEKDAY;
-import static christmas.domain.model.event.Event.WEEKEND;
-import static christmas.domain.model.order.menu.Type.DESSERT;
-import static christmas.domain.model.order.menu.Type.MAIN;
 
 public class EventApplyService {
 
@@ -66,7 +65,7 @@ public class EventApplyService {
     }
 
     private void applyEitherOne() {
-        if (reservation.isDateWeekend()){
+        if (reservation.isDateWeekend()) {
             applyWeekend();
             return;
         }

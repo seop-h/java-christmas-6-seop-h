@@ -1,9 +1,9 @@
 package christmas.ui.input.view;
 
-import camp.nextstep.edu.missionutils.Console;
-
 import static christmas.ui.input.InputMessage.EXPECTED_VISIT_DATE;
 import static christmas.ui.input.InputMessage.ORDER_MENU_AND_QUANTITY;
+
+import camp.nextstep.edu.missionutils.Console;
 
 public class InputView {
 

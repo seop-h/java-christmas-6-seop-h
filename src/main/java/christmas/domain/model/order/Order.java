@@ -1,10 +1,10 @@
 package christmas.domain.model.order;
 
+import static christmas.constant.UnitConst.COUNT;
+
 import christmas.domain.model.order.menu.Menu;
 import christmas.domain.model.order.menu.Serving;
 import christmas.domain.model.order.menu.Type;
-
-import static christmas.constant.UnitConst.COUNT;
 
 public class Order {
 

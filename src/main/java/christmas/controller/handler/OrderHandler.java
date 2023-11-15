@@ -5,7 +5,6 @@ import christmas.domain.model.Reservation;
 import christmas.domain.model.date.Date;
 import christmas.domain.service.reservation.ReservationMaker;
 import christmas.ui.input.view.InputView;
-
 import java.util.Map;
 
 public class OrderHandler {

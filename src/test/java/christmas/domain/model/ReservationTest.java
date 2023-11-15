@@ -1,5 +1,11 @@
 package christmas.domain.model;
 
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatIllegalArgumentException;
+
+import java.util.List;
+import java.util.Map;
+import java.util.stream.Stream;
 import christmas.constant.ErrorMessage;
 import christmas.domain.model.date.Date;
 import christmas.domain.model.order.menu.Type;
@@ -9,13 +15,6 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
-
-import java.util.List;
-import java.util.Map;
-import java.util.stream.Stream;
-
-import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.core.api.Assertions.assertThatIllegalArgumentException;
 
 class ReservationTest {
 

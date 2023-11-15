@@ -2,7 +2,6 @@ package christmas.domain.repository;
 
 import christmas.domain.model.event.Event;
 import christmas.domain.model.event.EventDetail;
-
 import java.util.ArrayList;
 import java.util.List;
 

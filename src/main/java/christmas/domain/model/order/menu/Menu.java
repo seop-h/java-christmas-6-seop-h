@@ -1,14 +1,12 @@
 package christmas.domain.model.order.menu;
 
-import christmas.constant.ErrorMessage;
+import static christmas.constant.ErrorMessage.NOT_INVALID_ORDER;
 
 import java.util.Arrays;
 
-import static christmas.constant.ErrorMessage.NOT_INVALID_ORDER;
-
 public enum Menu {
 
-    MUSHROOM_SOUP(Type.APPETIZER,"양송이수프", 6_000),
+    MUSHROOM_SOUP(Type.APPETIZER, "양송이수프", 6_000),
     TAPAS(Type.APPETIZER, "타파스", 5_500),
     CAESAR_SALAD(Type.APPETIZER, "시저샐러드", 8_000),
 
@@ -38,7 +36,7 @@ public enum Menu {
         return Arrays.stream(Menu.values())
                 .filter(menu -> menu.name.equals(menuName))
                 .findFirst()
-                .orElseThrow(()->new IllegalArgumentException(NOT_INVALID_ORDER));
+                .orElseThrow(() -> new IllegalArgumentException(NOT_INVALID_ORDER));
     }
 
     public boolean isKindOf(Type expected) {

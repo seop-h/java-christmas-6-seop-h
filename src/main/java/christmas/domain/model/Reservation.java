@@ -1,18 +1,17 @@
 package christmas.domain.model;
 
+import static christmas.constant.ErrorMessage.NOT_INVALID_ORDER;
+import static christmas.domain.Validator.checkCondition;
+import static christmas.domain.model.order.OrderConst.MAXIMUM_TOTAL_DISH;
+import static christmas.domain.model.order.menu.Type.BEVERAGE;
+
 import christmas.domain.model.date.Date;
+import christmas.domain.model.order.Order;
 import christmas.domain.model.order.menu.Menu;
 import christmas.domain.model.order.menu.Type;
-import christmas.domain.model.order.Order;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-
-import static christmas.domain.Validator.checkCondition;
-import static christmas.constant.ErrorMessage.NOT_INVALID_ORDER;
-import static christmas.domain.model.order.OrderConst.MAXIMUM_TOTAL_DISH;
-import static christmas.domain.model.order.menu.Type.BEVERAGE;
 
 public class Reservation {
 

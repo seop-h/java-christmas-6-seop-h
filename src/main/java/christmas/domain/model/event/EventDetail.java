@@ -1,10 +1,9 @@
 package christmas.domain.model.event;
 
-import christmas.constant.UnitConst;
-import christmas.util.AmountFormatter;
-
 import static christmas.constant.UnitConst.MINUS;
 import static christmas.constant.UnitConst.WON;
+
+import christmas.util.AmountFormatter;
 
 public class EventDetail {
 

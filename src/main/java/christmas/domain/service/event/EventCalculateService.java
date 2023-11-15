@@ -1,16 +1,15 @@
 package christmas.domain.service.event;
 
-import christmas.domain.model.Reservation;
-import christmas.domain.model.event.Badge;
-import christmas.domain.model.event.EventAmountConst;
-import christmas.domain.model.event.EventDetail;
-import christmas.domain.repository.EventRepository;
-import christmas.domain.repository.PromotionStore;
-
 import static christmas.domain.model.event.Badge.SANTA;
 import static christmas.domain.model.event.Badge.STAR;
 import static christmas.domain.model.event.Badge.TREE;
 import static christmas.domain.model.event.Event.GIVEAWAY;
+
+import christmas.domain.model.Reservation;
+import christmas.domain.model.event.EventAmountConst;
+import christmas.domain.model.event.EventDetail;
+import christmas.domain.repository.EventRepository;
+import christmas.domain.repository.PromotionStore;
 
 public class EventCalculateService {
 

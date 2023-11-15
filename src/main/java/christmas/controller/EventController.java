@@ -1,10 +1,8 @@
 package christmas.controller;
 
-import christmas.domain.model.event.Badge;
 import christmas.domain.service.event.EventApplyService;
 import christmas.domain.service.event.EventCalculateService;
 import christmas.ui.output.view.EventOutputView;
-
 import java.util.List;
 
 public class EventController {

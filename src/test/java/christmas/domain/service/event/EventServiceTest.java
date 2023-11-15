@@ -1,5 +1,16 @@
 package christmas.domain.service.event;
 
+import static christmas.domain.model.event.Event.CHRISTMAS_D_DAY;
+import static christmas.domain.model.event.Event.GIVEAWAY;
+import static christmas.domain.model.event.Event.SPECIAL;
+import static christmas.domain.model.event.Event.WEEKDAY;
+import static christmas.domain.model.event.Event.WEEKEND;
+import static org.assertj.core.api.Assertions.assertThat;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+import java.util.stream.Stream;
 import christmas.domain.model.Reservation;
 import christmas.domain.model.date.Date;
 import christmas.domain.model.event.Badge;
@@ -10,18 +21,6 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
-
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-import java.util.stream.Stream;
-
-import static christmas.domain.model.event.Event.CHRISTMAS_D_DAY;
-import static christmas.domain.model.event.Event.GIVEAWAY;
-import static christmas.domain.model.event.Event.SPECIAL;
-import static christmas.domain.model.event.Event.WEEKDAY;
-import static christmas.domain.model.event.Event.WEEKEND;
-import static org.assertj.core.api.Assertions.assertThat;
 
 class EventServiceTest {
 

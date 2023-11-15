@@ -1,9 +1,5 @@
 package christmas.ui.output.view;
 
-import christmas.util.AmountFormatter;
-
-import java.util.List;
-
 import static christmas.constant.UnitConst.MINUS;
 import static christmas.constant.UnitConst.WON;
 import static christmas.ui.output.OutputMessage.EVENT_BADGE;
@@ -12,6 +8,9 @@ import static christmas.ui.output.OutputMessage.GIVEAWAY_MENU;
 import static christmas.ui.output.OutputMessage.NOTHING;
 import static christmas.ui.output.OutputMessage.TOTAL_AMOUNT_AFTER_DISCOUNT;
 import static christmas.ui.output.OutputMessage.TOTAL_BENEFIT_AMOUNT;
+
+import christmas.util.AmountFormatter;
+import java.util.List;
 
 public class EventOutputView {
 

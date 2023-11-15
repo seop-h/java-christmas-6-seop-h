@@ -5,7 +5,6 @@ import christmas.domain.model.date.Date;
 import christmas.domain.model.order.Order;
 import christmas.domain.model.order.menu.Menu;
 import christmas.domain.model.order.menu.Serving;
-
 import java.util.LinkedHashMap;
 import java.util.Map;
 

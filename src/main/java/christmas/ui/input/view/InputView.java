@@ -19,4 +19,8 @@ public class InputView {
         return input;
     }
 
+    public static void cleanUpResource() {
+        Console.close();
+    }
+
 }

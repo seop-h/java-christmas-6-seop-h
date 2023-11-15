@@ -5,6 +5,7 @@ import christmas.controller.handler.OrderHandler;
 import christmas.domain.model.Reservation;
 import christmas.domain.model.date.Date;
 import christmas.domain.repository.PromotionStore;
+import christmas.ui.input.view.InputView;
 import christmas.ui.output.view.IntroOutputView;
 
 public class ReservationController {
@@ -16,6 +17,7 @@ public class ReservationController {
         Reservation reservation = OrderHandler.process(date);
 
         PromotionStore.initialize(reservation);
+        InputView.cleanUpResource();
     }
 
 }

@@ -4,6 +4,8 @@ import christmas.domain.model.order.menu.Menu;
 import christmas.domain.model.order.menu.Serving;
 import christmas.domain.model.order.menu.Type;
 
+import static christmas.constant.UnitConst.COUNT;
+
 public class Order {
 
     private final Menu menu;
@@ -28,6 +30,6 @@ public class Order {
 
     @Override
     public String toString() {
-        return menu.getName() + " " + getServingValue() + "개";
+        return menu.getName() + " " + getServingValue() + COUNT;
     }
 }

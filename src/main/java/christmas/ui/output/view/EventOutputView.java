@@ -1,18 +1,17 @@
 package christmas.ui.output.view;
 
 import christmas.util.AmountFormatter;
-import christmas.ui.output.OutputMessage;
 
 import java.util.List;
-import java.util.Map;
 
+import static christmas.constant.UnitConst.MINUS;
+import static christmas.constant.UnitConst.WON;
 import static christmas.ui.output.OutputMessage.EVENT_BADGE;
 import static christmas.ui.output.OutputMessage.EVENT_HISTORY;
 import static christmas.ui.output.OutputMessage.GIVEAWAY_MENU;
 import static christmas.ui.output.OutputMessage.NOTHING;
 import static christmas.ui.output.OutputMessage.TOTAL_AMOUNT_AFTER_DISCOUNT;
 import static christmas.ui.output.OutputMessage.TOTAL_BENEFIT_AMOUNT;
-import static christmas.ui.output.OutputMessage.UNIT;
 
 public class EventOutputView {
 
@@ -44,7 +43,13 @@ public class EventOutputView {
 
     public static void printTotalBenefitAmount(int amount) {
         System.out.println(TOTAL_BENEFIT_AMOUNT);
-        System.out.println(OutputMessage.makeTotalBenefitAmount(AmountFormatter.format(amount)));
+
+        String format = AmountFormatter.format(amount);
+        if (!format.equals("0")) {
+            System.out.print(MINUS);
+        }
+
+        System.out.println(format + WON);
         System.out.println();
     }
 
@@ -55,7 +60,7 @@ public class EventOutputView {
 
     public static void printAmountAfterDiscount(int amount) {
         System.out.println(TOTAL_AMOUNT_AFTER_DISCOUNT);
-        System.out.println(AmountFormatter.format(amount) + UNIT);
+        System.out.println(AmountFormatter.format(amount) + WON);
         System.out.println();
     }
 

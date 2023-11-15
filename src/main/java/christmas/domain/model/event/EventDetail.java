@@ -1,6 +1,10 @@
 package christmas.domain.model.event;
 
+import christmas.constant.UnitConst;
 import christmas.util.AmountFormatter;
+
+import static christmas.constant.UnitConst.MINUS;
+import static christmas.constant.UnitConst.WON;
 
 public class EventDetail {
 
@@ -22,6 +26,6 @@ public class EventDetail {
 
     @Override
     public String toString() {
-        return event.getDescription() + ": -" + AmountFormatter.format(discount) + "원";
+        return event.getDescription() + ": " + MINUS + AmountFormatter.format(discount) + WON;
     }
 }

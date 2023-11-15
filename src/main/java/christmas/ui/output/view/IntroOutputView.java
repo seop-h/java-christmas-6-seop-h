@@ -1,7 +1,7 @@
 package christmas.ui.output.view;
 
-import christmas.ui.output.OutputMessage;
-
+import static christmas.ui.output.OutputMessage.EVENT_OVERVIEW_PREFIX;
+import static christmas.ui.output.OutputMessage.EVENT_OVERVIEW_SUFFIX;
 import static christmas.ui.output.OutputMessage.INTRODUCE_PROMOTION;
 
 public class IntroOutputView {
@@ -11,7 +11,7 @@ public class IntroOutputView {
     }
 
     public static void printEventOverview(int date) {
-        System.out.println(OutputMessage.makeEventOverview(date));
+        System.out.println(EVENT_OVERVIEW_PREFIX + date + EVENT_OVERVIEW_SUFFIX);
         System.out.println();
     }
 

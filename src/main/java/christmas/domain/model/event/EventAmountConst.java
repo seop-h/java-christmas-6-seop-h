@@ -4,7 +4,6 @@ import christmas.domain.model.order.Order;
 import christmas.domain.model.order.menu.Menu;
 import christmas.domain.model.order.menu.Serving;
 
-//TODO abstract
 public class EventAmountConst {
 
     public static final int D_DAY_START = 1_000;

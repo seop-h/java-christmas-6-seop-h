@@ -27,9 +27,8 @@ public class PromotionStore {
     }
 
     private static PromotionStore getInstance() {
-        //TODO null 판단 부분 수정
         if (promotionStore == null) {
-            throw new RuntimeException("PromotionStore가 정상적으로 초기화되지 않았습니다.");
+            throw new RuntimeException();
         }
         return promotionStore;
     }

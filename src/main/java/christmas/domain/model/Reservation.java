@@ -50,7 +50,6 @@ public class Reservation {
                 .sum();
     }
 
-    //TODO DTO 고민
     public List<String> getOrderDetails() {
         List<String> result = new ArrayList<>();
 

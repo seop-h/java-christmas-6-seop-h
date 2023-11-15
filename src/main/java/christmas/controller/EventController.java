@@ -31,8 +31,8 @@ public class EventController {
     }
 
     public void showBadge() {
-        Badge badge = calculateService.giveBadge();
-        EventOutputView.printBadge(badge.toString());
+        String badge = calculateService.giveBadge();
+        EventOutputView.printBadge(badge);
     }
 
 }

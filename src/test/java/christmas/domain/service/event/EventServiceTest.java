@@ -14,7 +14,6 @@ import org.junit.jupiter.params.provider.MethodSource;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
 import java.util.stream.Stream;
 
 import static christmas.domain.model.event.Event.CHRISTMAS_D_DAY;
@@ -33,7 +32,7 @@ class EventServiceTest {
             int dateInput,
             Map<String, Integer> orderInput,
             List<EventDetail> eventDetailsExpected,
-            Badge badgeExpected
+            String badgeExpected
     ) {
         initialize(dateInput, orderInput);
 
@@ -61,23 +60,23 @@ class EventServiceTest {
         List<List<EventDetail>> eventDetails = makeEventDetails();
 
         return Stream.of(
-                Arguments.of(1, orderInputs.get(0), eventDetails.get(0), Badge.SANTA),
-                Arguments.of(10, orderInputs.get(0), eventDetails.get(1), Badge.SANTA),
-                Arguments.of(25, orderInputs.get(0), eventDetails.get(2), Badge.SANTA),
+                Arguments.of(1, orderInputs.get(0), eventDetails.get(0), Badge.SANTA.toString()),
+                Arguments.of(10, orderInputs.get(0), eventDetails.get(1), Badge.SANTA.toString()),
+                Arguments.of(25, orderInputs.get(0), eventDetails.get(2), Badge.SANTA.toString()),
 
-                Arguments.of(5, orderInputs.get(1), eventDetails.get(3), Badge.SANTA),
-                Arguments.of(9, orderInputs.get(1), eventDetails.get(4), Badge.SANTA),
-                Arguments.of(31, orderInputs.get(1), eventDetails.get(5), Badge.SANTA),
+                Arguments.of(5, orderInputs.get(1), eventDetails.get(3), Badge.SANTA.toString()),
+                Arguments.of(9, orderInputs.get(1), eventDetails.get(4), Badge.SANTA.toString()),
+                Arguments.of(31, orderInputs.get(1), eventDetails.get(5), Badge.SANTA.toString()),
 
-                Arguments.of(3, orderInputs.get(2), eventDetails.get(6), Badge.TREE),
-                Arguments.of(15, orderInputs.get(2), eventDetails.get(7), Badge.NOTHING),
-                Arguments.of(28, orderInputs.get(2), eventDetails.get(8), Badge.STAR),
+                Arguments.of(3, orderInputs.get(2), eventDetails.get(6), Badge.TREE.toString()),
+                Arguments.of(15, orderInputs.get(2), eventDetails.get(7), null),
+                Arguments.of(28, orderInputs.get(2), eventDetails.get(8), Badge.STAR.toString()),
 
-                Arguments.of(12, orderInputs.get(3), eventDetails.get(9), Badge.NOTHING),
-                Arguments.of(27, orderInputs.get(3), eventDetails.get(10), Badge.NOTHING),
-                Arguments.of(29, orderInputs.get(3), eventDetails.get(11), Badge.NOTHING),
+                Arguments.of(12, orderInputs.get(3), eventDetails.get(9), null),
+                Arguments.of(27, orderInputs.get(3), eventDetails.get(10), null),
+                Arguments.of(29, orderInputs.get(3), eventDetails.get(11), null),
 
-                Arguments.of(25, orderInputs.get(4), eventDetails.get(12), Badge.NOTHING)
+                Arguments.of(25, orderInputs.get(4), eventDetails.get(12), null)
         );
     }
 

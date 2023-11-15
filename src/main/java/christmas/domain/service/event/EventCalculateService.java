@@ -7,7 +7,6 @@ import christmas.domain.model.event.EventDetail;
 import christmas.domain.repository.EventRepository;
 import christmas.domain.repository.PromotionStore;
 
-import static christmas.domain.model.event.Badge.NOTHING;
 import static christmas.domain.model.event.Badge.SANTA;
 import static christmas.domain.model.event.Badge.STAR;
 import static christmas.domain.model.event.Badge.TREE;
@@ -39,19 +38,19 @@ public class EventCalculateService {
         return expectedPayAmount;
     }
 
-    public Badge giveBadge() {
+    public String giveBadge() {
         int amount = calculateTotalBenefitAmount();
 
         if (SANTA.isAmountSatisfied(amount)) {
-            return SANTA;
+            return SANTA.toString();
         }
         if (TREE.isAmountSatisfied(amount)) {
-            return TREE;
+            return TREE.toString();
         }
         if (STAR.isAmountSatisfied(amount)) {
-            return STAR;
+            return STAR.toString();
         }
-        return NOTHING;
+        return null;
     }
 
 }

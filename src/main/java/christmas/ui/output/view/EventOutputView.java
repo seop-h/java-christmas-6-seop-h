@@ -55,6 +55,11 @@ public class EventOutputView {
 
     public static void printBadge(String badge) {
         System.out.println(EVENT_BADGE);
+
+        if (badge == null) {
+            printNothing();
+            return;
+        }
         System.out.println(badge);
     }
 

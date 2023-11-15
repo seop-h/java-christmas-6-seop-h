@@ -2,7 +2,6 @@ package christmas.domain.model.event;
 
 public enum Badge {
 
-    NOTHING("없음", 0),
     STAR("별", 5_000),
     TREE("트리", 10_000),
     SANTA("산타", 20_000);

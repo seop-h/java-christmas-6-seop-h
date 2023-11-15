@@ -61,6 +61,7 @@ public class EventOutputView {
             return;
         }
         System.out.println(badge);
+        System.out.println();
     }
 
     public static void printAmountAfterDiscount(int amount) {

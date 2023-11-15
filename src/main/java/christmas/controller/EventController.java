@@ -17,9 +17,11 @@ public class EventController {
         this.calculateService = new EventCalculateService();
     }
 
-    public void showAppliedEvent() {
+    public void applyEvent() {
         applyService.applyEvent();
+    }
 
+    public void showAppliedEvent() {
         String giveaway = applyService.getGiveaway();
         EventOutputView.printGiveawayMenu(giveaway);
 

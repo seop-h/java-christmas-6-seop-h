@@ -15,6 +15,7 @@ public class Application {
         orderController.showAllOrderMenu();
         orderController.showTotalAmountBeforeDiscount();
 
+        eventController.applyEvent();
         eventController.showAppliedEvent();
         eventController.showBadge();
     }

@@ -6,15 +6,6 @@ import static christmas.domain.model.event.EventAmountConst.GIVEAWAY_PRODUCT;
 import static christmas.domain.model.event.EventAmountConst.PER_MENU;
 import static christmas.domain.model.event.EventAmountConst.SPECIAL_AMOUNT;
 
-/**
- * 이벤트 내용을 저장하고 있는 enum 클래스다.<br>
- * 각 이벤트마다 적용 방식이 상이해서 객체별 유효한 필드가 다르다.
- *
- * <p>1. CHRISTMAS_D_DAY: 첫날 할인 금액 1000원, 증분(공차) 100원<br>
- * 2. WEEKDAY, WEEKEND: 특정 메뉴당 2023원 할인<br>
- * 3. SPECIAL: 1000원 할인<br>
- * 4. GIVEAWAY: 증정 상품 샴페인 1개
- */
 public enum Event {
 
     CHRISTMAS_D_DAY("크리스마스 디데이 할인") {

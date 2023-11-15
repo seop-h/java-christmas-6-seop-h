@@ -80,7 +80,7 @@ public class EventApplyService {
     }
 
     private void applyGiveaway() {
-        if (reservation.calculateTotalOrderAmount() > MINIMUM_POSSIBLE_GIVEAWAY) {
+        if (reservation.calculateTotalOrderAmount() >= MINIMUM_POSSIBLE_GIVEAWAY) {
             addEventToRepository(GIVEAWAY, GIVEAWAY.calculateBenefitAmount(null));
         }
     }

@@ -21,14 +21,6 @@ public interface OutputMessage {
         return "12월 " + date + "일에 우테코 식당에서 받을 이벤트 혜택 미리 보기!";
     }
 
-    static String makeMenuDetail(String menuName, int serving) {
-        return menuName + " " + serving + "개";
-    }
-
-    static String makeEventDetail(String eventName, String discountAmount) {
-        return eventName + ": -" + discountAmount + UNIT;
-    }
-
     static String makeTotalBenefitAmount(String discountAmount) {
         if (discountAmount.equals("0")) {
             return discountAmount + UNIT;

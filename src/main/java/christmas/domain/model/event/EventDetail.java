@@ -17,7 +17,7 @@ public class EventDetail {
     }
 
     public boolean isKindOf(Event event) {
-        return (event.equals(event));
+        return (this.event.equals(event));
     }
 
     public int getDiscount() {

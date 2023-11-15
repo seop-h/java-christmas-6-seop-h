@@ -1,6 +1,6 @@
 package christmas.constant;
 
-public class UnitConst {
+public abstract class UnitConst {
 
     public static final String WON = "원";
     public static final String COUNT = "개";
